@@ -1,0 +1,241 @@
+\documentclass[12pt]{ximera}
+\title{Homework 5: Conditional Probability and Independence}
+\begin{document}
+\begin{abstract}
+Section 7.5: recognizing when two events are independent, computing conditional
+probabilities from the definition, and building a full tree diagram for two draws
+without replacement.
+\end{abstract}
+\maketitle
+
+\section*{Section 7.5: Conditional Probability and Independence}
+
+\begin{problem}
+Identify whether each of the following pairs of events is independent or not.
+
+\begin{prompt}
+\textbf{(a)} Event $E$: the high today is above $60^\circ$ Fahrenheit. \\
+Event $F$: you've dressed in a sweater.
+
+\begin{multipleChoice}
+\choice{Independent}
+\choice[correct]{Not independent}
+\end{multipleChoice}
+
+\begin{solution}
+Not independent. Knowing that it is warm today changes how likely you are to have
+put on a sweater, so $P(F\mid E)\neq P(F)$.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Drawing cards from a deck \emph{with} replacement. \\
+Event $E$: you draw a red card on the first draw. \\
+Event $F$: you draw a red card on the second draw.
+
+\begin{multipleChoice}
+\choice[correct]{Independent}
+\choice{Not independent}
+\end{multipleChoice}
+
+\begin{solution}
+Independent. The first card is returned and the deck reshuffled, so the second draw
+faces the same $52$-card deck no matter what happened first:
+$P(F\mid E)=\frac{26}{52}=\frac12=P(F)$.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} Drawing cards from a deck \emph{without} replacement. \\
+Event $E$: you draw a red card on the first draw. \\
+Event $F$: you draw a red card on the second draw.
+
+\begin{multipleChoice}
+\choice{Independent}
+\choice[correct]{Not independent}
+\end{multipleChoice}
+
+\begin{solution}
+Not independent. Removing a red card leaves $25$ red cards among $51$, so
+\[ P(F\mid E)=\frac{25}{51}\approx 0.490, \]
+whereas $P(F)=\frac12$. Since $P(F\mid E)\neq P(F)$, the events are dependent.
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Use the formulas for conditional probability to solve the following. Give exact
+answers.
+
+Suppose $P(E)=0.6$, $P(F)=0.4$, and $P(E\cap F)=0.15$.
+
+\begin{prompt}
+\textbf{(a)} What is $P(F\mid E)$?
+
+$P(F\mid E) = \answer[tolerance=0.001]{0.25}$
+
+\begin{hint}
+$P(F\mid E)=\dfrac{P(E\cap F)}{P(E)}$.
+\end{hint}
+
+\begin{solution}
+\[
+P(F\mid E)=\frac{P(E\cap F)}{P(E)}=\frac{0.15}{0.6}=0.25.
+\]
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Are the events $E$ and $F$ independent?
+
+\begin{multipleChoice}
+\choice{Yes}
+\choice[correct]{No}
+\end{multipleChoice}
+
+\begin{solution}
+No. Independence would require $P(F\mid E)=P(F)$, but $P(F\mid E)=0.25$ while
+$P(F)=0.4$.
+
+Equivalently, independence would require $P(E\cap F)=P(E)\cdot P(F)$, but
+$0.6\times 0.4 = 0.24 \neq 0.15$. Knowing $E$ happened makes $F$ less likely, so the
+two events are dependent.
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Suppose you have a container of assorted chocolate truffles with $3$ milk chocolates
+(M), only one dark chocolate (D), and $5$ white chocolates (W) remaining --- nine
+truffles in all.
+
+You draw one for yourself and then one to share with a friend, \emph{without}
+replacing the first. Below, the truffle drawn for you is labeled with a $1$, and
+your friend's with a $2$.
+
+Enter every answer in this problem as a fraction.
+
+\begin{prompt}
+\textbf{(a, first draw)} The probabilities on the first three branches of the tree:
+
+$P(M_1)=\answer{1/3}$ \qquad
+$P(D_1)=\answer{1/9}$ \qquad
+$P(W_1)=\answer{5/9}$
+
+\begin{hint}
+There are $9$ truffles at the first draw.
+\end{hint}
+
+\begin{solution}
+Out of $9$ truffles, $3$ are milk, $1$ is dark, and $5$ are white:
+\[
+P(M_1)=\frac39=\frac13, \qquad P(D_1)=\frac19, \qquad P(W_1)=\frac59.
+\]
+These add to $1$, as the first-generation branches of a tree always must.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(a, second draw)} Now the conditional probabilities on the second set of
+branches. Remember that one truffle has already been removed, so only $8$ remain.
+
+Given your truffle was milk: \\
+$P(M_2\mid M_1)=\answer{1/4}$ \quad
+$P(D_2\mid M_1)=\answer{1/8}$ \quad
+$P(W_2\mid M_1)=\answer{5/8}$
+
+\smallskip
+Given your truffle was dark: \\
+$P(M_2\mid D_1)=\answer{3/8}$ \quad
+$P(D_2\mid D_1)=\answer{0}$ \quad
+$P(W_2\mid D_1)=\answer{5/8}$
+
+\smallskip
+Given your truffle was white: \\
+$P(M_2\mid W_1)=\answer{3/8}$ \quad
+$P(D_2\mid W_1)=\answer{1/8}$ \quad
+$P(W_2\mid W_1)=\answer{1/2}$
+
+\begin{hint}
+In each row, subtract one from the count of the flavor you already drew, and use $8$
+as the denominator. There was only one dark truffle to begin with.
+\end{hint}
+
+\begin{solution}
+After your draw, $8$ truffles remain, with one fewer of whichever flavor you took.
+\begin{itemize}
+\item If you took milk, the remaining pool is $2$ M, $1$ D, $5$ W:
+      $\frac28=\frac14$, $\frac18$, $\frac58$.
+\item If you took the dark one, the pool is $3$ M, $0$ D, $5$ W:
+      $\frac38$, $0$, $\frac58$. The dark branch is impossible because there was
+      only ever one dark truffle.
+\item If you took white, the pool is $3$ M, $1$ D, $4$ W:
+      $\frac38$, $\frac18$, $\frac48=\frac12$.
+\end{itemize}
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Multiply along each path to get the probability of each outcome.
+
+$P(M_1\cap M_2)=\answer{1/12}$ \quad
+$P(M_1\cap D_2)=\answer{1/24}$ \quad
+$P(M_1\cap W_2)=\answer{5/24}$
+
+\smallskip
+$P(D_1\cap M_2)=\answer{1/24}$ \quad
+$P(D_1\cap D_2)=\answer{0}$ \quad
+$P(D_1\cap W_2)=\answer{5/72}$
+
+\smallskip
+$P(W_1\cap M_2)=\answer{5/24}$ \quad
+$P(W_1\cap D_2)=\answer{5/72}$ \quad
+$P(W_1\cap W_2)=\answer{5/18}$
+
+\begin{hint}
+$P(X_1\cap Y_2)=P(X_1)\cdot P(Y_2\mid X_1)$ --- multiply the two numbers along the
+path from the start of the tree to that outcome.
+\end{hint}
+
+\begin{solution}
+Multiplying along each path (all nine have denominator $72$ before reducing):
+\[
+\begin{array}{lll}
+P(M_1\cap M_2)=\frac39\cdot\frac28=\frac{6}{72}=\frac{1}{12} &
+P(M_1\cap D_2)=\frac39\cdot\frac18=\frac{3}{72}=\frac{1}{24} &
+P(M_1\cap W_2)=\frac39\cdot\frac58=\frac{15}{72}=\frac{5}{24}\\[4pt]
+P(D_1\cap M_2)=\frac19\cdot\frac38=\frac{3}{72}=\frac{1}{24} &
+P(D_1\cap D_2)=\frac19\cdot 0=0 &
+P(D_1\cap W_2)=\frac19\cdot\frac58=\frac{5}{72}\\[4pt]
+P(W_1\cap M_2)=\frac59\cdot\frac38=\frac{15}{72}=\frac{5}{24} &
+P(W_1\cap D_2)=\frac59\cdot\frac18=\frac{5}{72} &
+P(W_1\cap W_2)=\frac59\cdot\frac48=\frac{20}{72}=\frac{5}{18}
+\end{array}
+\]
+As a check, the nine numerators over $72$ add up to
+$6+3+15+3+0+5+15+5+20=72$, so the outcomes total probability $1$.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} What is the probability that you and your friend draw the same flavor of
+truffle?
+
+$\answer{13/36}$
+
+\begin{hint}
+Three of the nine outcomes have both truffles the same flavor. Add those three
+probabilities.
+\end{hint}
+
+\begin{solution}
+The ``same flavor'' outcomes are $M_1\cap M_2$, $D_1\cap D_2$, and $W_1\cap W_2$:
+\[
+\frac{6}{72} + 0 + \frac{20}{72} = \frac{26}{72} = \frac{13}{36} \approx 0.361.
+\]
+Note that $D_1\cap D_2$ contributes nothing, since there is only one dark truffle.
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\end{document}

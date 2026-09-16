@@ -1,0 +1,190 @@
+\documentclass[12pt]{ximera}
+\title{Homework 6: Bayes' Theorem}
+\begin{document}
+\begin{abstract}
+Section 7.6: translating a word problem into conditional-probability notation,
+choosing the tree diagram that matches the information given, and applying Bayes'
+Theorem --- including the classic medical-testing example where a $90\%$ sensitive
+test still gets it wrong a third of the time.
+\end{abstract}
+\maketitle
+
+\section*{Section 7.6: Bayes' Theorem}
+
+\begin{problem}
+Suppose after an election, it is determined that only $60\%$ of eligible voters
+actually voted ($V$). Among those who voted, $35\%$ were registered Republican
+($R$), $30\%$ Democrat ($D$), $25\%$ Independent ($I$), and $10\%$ other ($O$);
+and among those who didn't vote ($\olsi{V}$), $20\%$ were registered Republican,
+$25\%$ Democrat, $30\%$ Independent, and $25\%$ other.
+
+\begin{prompt}
+\textbf{(a)} Using the set abbreviations given above, translate every probability
+from this problem into mathematical notation.
+
+For example, ``only $60\%$ of eligible voters actually voted'' translates to
+$P(V)=60\%$, or $0.6$.
+
+\begin{freeResponse}
+\end{freeResponse}
+
+\begin{solution}
+The overall voting rate, and its complement:
+\[ P(V)=0.60, \qquad P\left(\olsi{V}\right)=0.40. \]
+
+The party breakdowns are all \emph{conditional}, because each was reported within a
+group. Among those who voted:
+\[
+P(R\mid V)=0.35,\quad P(D\mid V)=0.30,\quad P(I\mid V)=0.25,\quad P(O\mid V)=0.10.
+\]
+Among those who did not vote:
+\[
+P\left(R\mid\olsi{V}\right)=0.20,\quad
+P\left(D\mid\olsi{V}\right)=0.25,\quad
+P\left(I\mid\olsi{V}\right)=0.30,\quad
+P\left(O\mid\olsi{V}\right)=0.25.
+\]
+Notice that each group of four conditional probabilities adds to $1$.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Which tree diagram is appropriate for the information given above?
+
+\begin{multipleChoice}
+\choice{Tree \#1: the first split is by party, and the second split is whether they voted}
+\choice[correct]{Tree \#2: the first split is whether they voted, and the second split is by party}
+\end{multipleChoice}
+
+\begin{hint}
+A tree's second-generation branches carry conditional probabilities of the form
+$P(\text{second}\mid\text{first})$. Which way around were the percentages in the
+problem reported?
+\end{hint}
+
+\begin{solution}
+Tree \#2. The problem gives $P(V)$ first, and then reports party membership
+\emph{within} each voting group --- $P(R\mid V)$, $P(R\mid\olsi{V})$, and so on.
+That is exactly the structure of a tree that splits on voting status first and party
+second.
+
+Tree \#1 would require the probabilities $P(V\mid R)$, $P(V\mid D)$, and so forth on
+its second-generation branches, and those are not given --- in fact finding one of
+them is the point of part (c).
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} Using Bayes' Theorem, determine the probability that an eligible voter
+who was registered Independent actually voted in the election. That is, determine
+$P(V\mid I)$.
+
+Give your answer as a fraction in lowest terms: $P(V\mid I)=\answer{5/9}$
+
+\begin{hint}
+Bayes' Theorem here reads
+\[
+P(V\mid I)=\frac{P(I\mid V)P(V)}{P(I\mid V)P(V)+P\left(I\mid\olsi{V}\right)P\left(\olsi{V}\right)}.
+\]
+The denominator is just the total probability of being Independent, found by adding
+up the two paths through the tree that end in $I$.
+\end{hint}
+
+\begin{solution}
+There are two paths through the tree that end at ``Independent'':
+\[
+P(I\cap V)=P(I\mid V)P(V)=(0.25)(0.60)=0.15,
+\]
+\[
+P\left(I\cap\olsi{V}\right)=P\left(I\mid\olsi{V}\right)P\left(\olsi{V}\right)=(0.30)(0.40)=0.12.
+\]
+So $P(I)=0.15+0.12=0.27$, and
+\[
+P(V\mid I)=\frac{P(I\cap V)}{P(I)}=\frac{0.15}{0.27}=\frac{15}{27}=\frac59\approx 0.556.
+\]
+So about $55.6\%$ of registered Independents voted --- lower than the $60\%$ overall
+turnout, which makes sense because Independents were over-represented among
+non-voters.
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Consider the following definitions, then use Bayes' Theorem to solve.
+\begin{itemize}
+    \item The \emph{sensitivity} of a medical test is the probability that the test
+      will (accurately) return a positive result, provided whatever it's testing for
+      is indeed present.
+    \item The \emph{specificity} of a medical test is the probability that the test
+      will (accurately) return a negative result, provided whatever it's testing for
+      is NOT present.
+\end{itemize}
+
+Suppose a blood test has $90\%$ sensitivity and $99\%$ specificity, and suppose it is
+known that $2\%$ of people have the particular blood disorder the test is designed to
+detect.
+
+\begin{prompt}
+\textbf{(a)} What is the probability that someone does indeed have this blood
+disorder, given they receive a positive test result?
+
+To the nearest percent: $\answer{65}\%$
+
+\begin{hint}
+In symbols, sensitivity is $P(+\mid B)=0.90$ and specificity is
+$P\left(-\mid\olsi{B}\right)=0.99$, so the false-positive rate is
+$P\left(+\mid\olsi{B}\right)=0.01$. You want $P(B\mid +)$, which reverses the
+conditioning --- so Bayes' Theorem applies.
+\end{hint}
+
+\begin{solution}
+Write $B$ for having the disorder. We know
+\[
+P(B)=0.02,\quad P(+\mid B)=0.90,\quad P\left(+\mid\olsi{B}\right)=1-0.99=0.01.
+\]
+The two paths that end in a positive result are
+\[
+P(+\cap B)=(0.90)(0.02)=0.018, \qquad
+P\left(+\cap\olsi{B}\right)=(0.01)(0.98)=0.0098,
+\]
+so $P(+)=0.018+0.0098=0.0278$ and
+\[
+P(B\mid +)=\frac{0.018}{0.0278}=\frac{90}{139}\approx 0.6475,
+\]
+about $65\%$.
+
+This is the point of the problem: even with a very accurate test, a positive result
+means only a $65\%$ chance of actually having the disorder. The disorder is rare, so
+the $1\%$ of the healthy $98\%$ who test positive falsely --- nearly $1$ person in
+$100$ --- is comparable in size to the $1.8$ people in $100$ who are correctly
+flagged.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} What is the probability that someone does NOT have this blood disorder,
+given they receive a negative test result?
+
+Give your answer as a percentage rounded to two decimal places:
+$\answer[tolerance=0.005]{99.79}\%$
+
+\begin{solution}
+The two paths that end in a negative result are
+\[
+P\left(-\cap\olsi{B}\right)=(0.99)(0.98)=0.9702, \qquad
+P(-\cap B)=(0.10)(0.02)=0.002,
+\]
+so $P(-)=0.9702+0.002=0.9722$ and
+\[
+P\left(\olsi{B}\mid -\right)=\frac{0.9702}{0.9722}=\frac{4851}{4861}\approx 0.997943,
+\]
+that is, about $99.79\%$ --- which rounds to $100\%$ at the nearest whole percent.
+
+Compare this with part (a): the same test is extremely trustworthy when it comes
+back negative and only moderately trustworthy when it comes back positive. That
+asymmetry comes entirely from the disorder being rare.
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\end{document}

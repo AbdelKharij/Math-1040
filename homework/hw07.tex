@@ -1,0 +1,222 @@
+\documentclass[12pt]{ximera}
+\title{Homework 7: Counting --- Multiplication Principle, Permutations, Combinations}
+\begin{document}
+\begin{abstract}
+Sections 8.1--8.2: deciding which counting technique a situation calls for --- the
+multiplication principle, permutations, or combinations --- and then carrying out the
+count.
+\end{abstract}
+\maketitle
+
+\section*{Sections 8.1--8.2: Counting Techniques}
+
+The question to ask in every one of these problems is: \emph{does order matter, and
+may things repeat?}
+\begin{itemize}
+\item Order matters, no repeats, choosing $r$ from $n$: permutations,
+      $P(n,r)=\frac{n!}{(n-r)!}$.
+\item Order does not matter, no repeats: combinations,
+      $C(n,r)=\frac{n!}{r!\,(n-r)!}$.
+\item Independent choices made in sequence, repeats allowed: multiplication
+      principle.
+\end{itemize}
+
+\begin{problem}
+For each of the following situations, use the multiplication principle, the
+permutations formula, or the combinations formula to count appropriately.
+
+\begin{prompt}
+\textbf{(a)} How many ways are there for a track coach to select athletes for the
+first, second, third, and fourth legs of a $4\times100\text{m}$ relay from a team of
+$12$ runners?
+
+Which technique applies?
+\begin{multipleChoice}
+\choice[correct]{Permutations --- order matters and no runner repeats}
+\choice{Combinations --- order does not matter}
+\choice{Multiplication principle with repetition allowed}
+\end{multipleChoice}
+
+The count is $\answer{11880}$.
+
+\begin{solution}
+The four legs are distinguishable, so the order of selection matters, and no runner
+can run two legs. This is a permutation of $4$ runners from $12$:
+\[
+P(12,4)=\frac{12!}{8!}=12\cdot 11\cdot 10\cdot 9 = 11{,}880.
+\]
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} How many different ways can $4$ professors be selected to teach Finite
+Mathematics from among $10$ teaching professors?
+
+Which technique applies?
+\begin{multipleChoice}
+\choice{Permutations --- order matters}
+\choice[correct]{Combinations --- we only care which four are chosen}
+\choice{Multiplication principle with repetition allowed}
+\end{multipleChoice}
+
+The count is $\answer{210}$.
+
+\begin{solution}
+Here we only care \emph{which} four professors are chosen, not in what order, and
+nobody is chosen twice. That is a combination:
+\[
+C(10,4)=\frac{10!}{4!\,6!}=\frac{10\cdot 9\cdot 8\cdot 7}{4\cdot 3\cdot 2\cdot 1}=210.
+\]
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} How many ways can each of the $7$ sections of Finite Mathematics be
+assigned one of $4$ particular teaching professors (allowing professors to teach
+multiple sections)?
+
+Which technique applies?
+\begin{multipleChoice}
+\choice{Permutations --- order matters and nothing repeats}
+\choice{Combinations --- order does not matter}
+\choice[correct]{Multiplication principle --- each section is an independent choice, repeats allowed}
+\end{multipleChoice}
+
+The count is $\answer{16384}$.
+
+\begin{hint}
+Go section by section. How many professors could be assigned to section 1? To
+section 2, given that professors may repeat?
+\end{hint}
+
+\begin{solution}
+Each of the $7$ sections independently gets any one of the $4$ professors, and
+professors may be reused. By the multiplication principle,
+\[
+4\cdot 4\cdot 4\cdot 4\cdot 4\cdot 4\cdot 4 = 4^7 = 16{,}384.
+\]
+Note the base and exponent: it is $4^7$, not $7^4$. Each of the $7$ \emph{sections}
+is a decision, and each decision has $4$ options.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(d)} How many ways are there to guess the birth order of the ten siblings in
+my grampa's family growing up?
+
+The count is $\answer{3628800}$.
+
+\begin{solution}
+This is a full ordering of all $10$ siblings, which is $10$ factorial:
+\[
+P(10,10)=10! = 3{,}628{,}800.
+\]
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Use the multiplication principle and/or permutations to count the following.
+
+Suppose you want to plan outfits for a $5$-day trip. You've made a checklist of the
+decisions you need to make:
+\begin{itemize}
+    \item You own $11$ tops, and need to select and order $5$ for the trip.
+    \item You own $7$ bottoms, and similarly need to select and order $5$ for the trip.
+    \item You own $9$ pairs of socks, and need to select and order $5$ pairs for the trip.
+\end{itemize}
+How many possible outfit arrangements are there for the week?
+
+\begin{prompt}
+Write out the formula you would use. (You do not need to calculate it fully.)
+
+\begin{freeResponse}
+\end{freeResponse}
+
+\begin{hint}
+Each of the three checklist items is a permutation --- you are selecting \emph{and
+ordering}, since assigning a top to Monday versus Friday gives a different week.
+Then combine the three independent decisions.
+\end{hint}
+
+\begin{solution}
+Each line of the checklist is a permutation, because the items are assigned to
+particular days:
+\[
+P(11,5)\cdot P(7,5)\cdot P(9,5)
+= \frac{11!}{6!}\cdot\frac{7!}{2!}\cdot\frac{9!}{4!}.
+\]
+The three decisions are independent, so by the multiplication principle they
+multiply. Numerically this is
+\[
+55{,}440 \cdot 2{,}520 \cdot 15{,}120 = 2{,}112{,}397{,}056{,}000,
+\]
+a little over two trillion possible weeks.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+To check the pieces, enter each permutation's value:
+
+$P(11,5)=\answer{55440}$ \qquad
+$P(7,5)=\answer{2520}$ \qquad
+$P(9,5)=\answer{15120}$
+
+\begin{solution}
+\[
+P(11,5)=11\cdot 10\cdot 9\cdot 8\cdot 7 = 55{,}440,
+\]
+\[
+P(7,5)=7\cdot 6\cdot 5\cdot 4\cdot 3 = 2{,}520,
+\]
+\[
+P(9,5)=9\cdot 8\cdot 7\cdot 6\cdot 5 = 15{,}120.
+\]
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Use our counting techniques to answer the following.
+
+In the 2024 Olympics, Team USA was represented in the team finals for women's
+gymnastics by $5$ of their athletes. Women's gymnastics has $4$ different apparatuses
+(vault, uneven bars, balance beam, and floor), and for each apparatus, the coach
+selects $3$ gymnasts to represent the team on that apparatus.
+
+\begin{prompt}
+\textbf{(a)} How many ways were there to select which of these gymnasts would
+represent Team USA on the vault?
+
+$\answer{10}$
+
+\begin{solution}
+Choosing $3$ gymnasts out of $5$, with order irrelevant:
+\[
+C(5,3)=\frac{5!}{3!\,2!}=\frac{5\cdot 4}{2\cdot 1}=10.
+\]
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} How many ways were there to select representatives for all four
+apparatuses, altogether?
+
+$\answer{10000}$
+
+\begin{hint}
+The same gymnast may compete on more than one apparatus, so the four selections do
+not interfere with each other. Each apparatus is an independent repeat of part (a).
+\end{hint}
+
+\begin{solution}
+Each apparatus independently gets one of the $C(5,3)=10$ possible trios, and a
+gymnast may appear on several apparatuses. By the multiplication principle,
+\[
+10 \cdot 10 \cdot 10 \cdot 10 = 10^4 = 10{,}000.
+\]
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\end{document}

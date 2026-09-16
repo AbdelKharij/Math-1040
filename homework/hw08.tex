@@ -1,0 +1,182 @@
+\documentclass[12pt]{ximera}
+\title{Homework 8: Probability Applications of Counting}
+\begin{document}
+\begin{abstract}
+Section 8.3: using combinations to build probabilities --- committee composition in
+the Iowa Senate, and just how unlikely a magician's ``randomly shuffled'' deck really
+is.
+\end{abstract}
+\maketitle
+
+\section*{Section 8.3: Probability Applications of Counting Principles}
+
+The pattern throughout this assignment: count the outcomes in the event, count all
+equally likely outcomes, and divide.
+
+\begin{problem}
+The Iowa Senate currently consists of $33$ Republicans and $17$ Democrats. Their
+current Education committee has $16$ members --- $11$ Republicans and $5$ Democrats.
+
+\begin{prompt}
+\textbf{(a)} How many possible ways would there be to select any $16$ senators for
+the Education committee?
+
+$\answer{4923689695575}$
+
+\begin{hint}
+A committee is unordered, and there are $33+17=50$ senators.
+\end{hint}
+
+\begin{solution}
+Choosing an unordered committee of $16$ from $50$ senators:
+\[
+C(50,16)=\frac{50!}{16!\,34!}=4{,}923{,}689{,}695{,}575,
+\]
+close to five trillion possible committees.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} How many different ways could the $16$ be selected so that $11$ of them
+are Republicans and $5$ of them are Democrats?
+
+$\answer{1197605223360}$
+
+\begin{hint}
+Choose the Republicans and the Democrats separately, then combine the two
+independent choices with the multiplication principle.
+\end{hint}
+
+\begin{solution}
+Pick $11$ of the $33$ Republicans and, independently, $5$ of the $17$ Democrats:
+\[
+C(33,11)\cdot C(17,5) = 193{,}536{,}720 \cdot 6{,}188 = 1{,}197{,}605{,}223{,}360.
+\]
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} If $16$ senators were selected at random to be placed on the committee,
+what is the probability that it would wind up with exactly $11$ Republicans and $5$
+Democrats?
+
+As a percentage rounded to two decimal places: $\answer[tolerance=0.005]{24.32}\%$
+
+\begin{solution}
+Divide part (b) by part (a):
+\[
+P = \frac{C(33,11)\cdot C(17,5)}{C(50,16)}
+  = \frac{1{,}197{,}605{,}223{,}360}{4{,}923{,}689{,}695{,}575}
+  \approx 0.2432,
+\]
+about $24.32\%$.
+
+So the actual party split of the committee is a fairly likely one --- it is close to
+proportional to the Senate as a whole, and near-proportional splits are the most
+common outcome of a random draw.
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+A sleight-of-hand magician's trick involves drawing increasingly unlikely sets of
+cards from a ``randomly shuffled'' deck of $52$ cards. Their deck is half red and
+half black, with four suits (Hearts, Diamonds, Spades, and Clubs), and within each
+suit are the cards Ace, 2, 3, 4, 5, 6, 7, 8, 9, 10, Jack, Queen, and King.
+
+First, the magician claims, she'll draw four red cards in a row, and does. After
+reshuffling the deck, she claims she'll draw four Hearts in a row, and does. After
+reshuffling again, she claims she'll draw all four aces from the deck in a row, and
+does. The audience is, appropriately, impressed.
+
+\begin{prompt}
+\textbf{(a)} How many distinct outcomes are possible if four cards are drawn from a
+deck of $52$ and shown to the audience \emph{without} respect to their order?
+
+$\answer{270725}$
+
+\begin{solution}
+Order does not matter, so this is a combination:
+\[
+C(52,4)=\frac{52\cdot 51\cdot 50\cdot 49}{4\cdot 3\cdot 2\cdot 1}=270{,}725.
+\]
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} How many distinct outcomes are possible if four cards are drawn from a
+deck of $52$ and shown to the audience one at a time \emph{in the order} they were
+drawn?
+
+$\answer{6497400}$
+
+\begin{solution}
+Now order matters, so this is a permutation:
+\[
+P(52,4)=52\cdot 51\cdot 50\cdot 49 = 6{,}497{,}400.
+\]
+This is exactly $4!=24$ times the answer to part (a), since each unordered set of
+four cards can be shown in $24$ different orders.
+\end{solution}
+\end{prompt}
+
+For the remaining parts, either count can be used, as long as you count the event the
+same way you counted the sample space. The solutions below use the unordered count
+from part (a).
+
+\begin{prompt}
+\textbf{(c)} What is the probability, if the deck is indeed randomly shuffled, of
+drawing four red cards in a row from the deck of $52$?
+
+As a percentage rounded to two decimal places: $\answer[tolerance=0.005]{5.52}\%$
+
+\begin{hint}
+How many four-card sets consist entirely of red cards? There are $26$ red cards.
+\end{hint}
+
+\begin{solution}
+There are $26$ red cards, so the number of all-red four-card hands is
+$C(26,4)=14{,}950$. Therefore
+\[
+P(\text{4 red}) = \frac{C(26,4)}{C(52,4)}=\frac{14{,}950}{270{,}725}=\frac{46}{833}\approx 0.0552,
+\]
+about $5.52\%$ --- unlikely, but hardly astonishing.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(d)} What is the probability, with a randomly shuffled deck, of drawing four
+Hearts in a row from the deck of $52$?
+
+As a percentage rounded to two decimal places: $\answer[tolerance=0.005]{0.26}\%$
+
+\begin{solution}
+There are $13$ Hearts, so
+\[
+P(\text{4 Hearts}) = \frac{C(13,4)}{C(52,4)}=\frac{715}{270{,}725}=\frac{11}{4165}\approx 0.00264,
+\]
+about $0.26\%$ --- roughly $1$ chance in $379$.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(e)} What is the probability, with a randomly shuffled deck, of drawing all
+four Aces in a row from the deck of $52$?
+
+There is exactly one four-card hand consisting of all four aces, so this probability
+is $1$ in $\answer{270725}$.
+
+\begin{solution}
+Only one set of four cards is all four aces, namely $C(4,4)=1$, so
+\[
+P(\text{4 Aces}) = \frac{1}{C(52,4)}=\frac{1}{270{,}725}\approx 0.0000037,
+\]
+about $0.00037\%$.
+
+Taken together, the three tricks are the point of the problem: the last one alone is
+a one-in-$270{,}725$ event, so the deck was almost certainly not randomly shuffled.
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\end{document}

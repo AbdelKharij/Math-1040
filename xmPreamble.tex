@@ -1,0 +1,31 @@
+\typeout{Start loading xmPreamble.tex}%
+
+%% ximera.cls auto-loads this file (see \xmDefaultPreamble), and xourse.cls loads
+%% ximera.cls in turn -- so activities and xourses both get it without an explicit
+%% \input. This guard keeps a stray second load from redefining the macros below.
+\ifdefined\xmPreambleLoaded\endinput\fi
+\let\xmPreambleLoaded\relax
+
+
+%% Shared packages and macros for every document in this repo.
+%%
+%% NOTE: do NOT add \usepackage to individual activity .tex files.
+%% When a xourse inlines an activity it gobbles \documentclass and \input, but a bare
+%% \usepackage still executes -- after \begin{document} -- and errors out.
+%%
+%% ximera.cls already loads: amsmath, amssymb, amsthm, cancel, enumitem, graphicx,
+%% hyperref, listings, pgfplots, tikz, url, xcolor. No need to re-load those.
+
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{mathtools}
+
+\usetikzlibrary{positioning, arrows.meta}
+
+%% Payoff/probability tables and preference schedules are set with plain tabular;
+%% this column type keeps the game-matrix columns evenly spaced.
+\newcommand{\payoffcol}{>{\centering\arraybackslash}p{2.2em}}
+
+\newcommand{\set}[1]{\left\{#1\right\}}
+\newcommand{\paren}[1]{\left(#1\right)}
+\newcommand{\olsi}[1]{\,\overline{\!{#1}}}

@@ -1,0 +1,189 @@
+\documentclass[12pt]{ximera}
+\title{Homework 1: Algebra Review}
+\begin{document}
+\begin{abstract}
+Algebra review before the main content of the course: expanding and factoring
+polynomials, the zero-product property, solving a linear equation, and converting
+between decimals, percentages, and fractions.
+\end{abstract}
+\maketitle
+
+\section*{Sections R.1--R.4: Algebra Review}
+
+Here are a few problems for algebra review, before we get into the meat of the
+semester. If any of these give you trouble, work through the hints and solutions ---
+and bring the ones that still give you trouble to class.
+
+\begin{problem}
+Expand the polynomial $(6x+5)(3x-2)$ and combine like terms.
+
+\[ (6x+5)(3x-2) = \answer{18x^2+3x-10} \]
+
+\begin{hint}
+Multiply every term of the first factor by every term of the second (FOIL), then
+collect the two $x$ terms.
+\end{hint}
+
+\begin{solution}
+\begin{align*}
+(6x+5)(3x-2) &= 6x\cdot 3x + 6x\cdot(-2) + 5\cdot 3x + 5\cdot(-2)\\
+             &= 18x^2 - 12x + 15x - 10\\
+             &= 18x^2 + 3x - 10.
+\end{align*}
+\end{solution}
+\end{problem}
+
+\begin{problem}
+Factor the polynomial $16x^2+24$ by bringing the greatest common factor out front.
+
+Write the answer in the form (GCF) times a polynomial:
+\[ 16x^2 + 24 = \answer{8}\left(\answer{2x^2+3}\right) \]
+
+\begin{hint}
+What is the largest number that divides both $16$ and $24$? Note that $x$ is
+\emph{not} a common factor here --- the second term has no $x$ in it.
+\end{hint}
+
+\begin{solution}
+The greatest common factor of $16$ and $24$ is $8$, and $24$ has no factor of $x$,
+so the GCF is just $8$:
+\[ 16x^2 + 24 = 8\left(2x^2 + 3\right). \]
+\end{solution}
+\end{problem}
+
+\begin{problem}
+Determine which of the following is true for all real numbers, and give a
+counterexample (that is, values of $A$, $B$, and $C$ for which it fails) if it is
+false.
+
+\begin{prompt}
+\textbf{(a)} $\dfrac{A}{B} + \dfrac{A}{C} = \dfrac{A}{B+C}$
+
+\begin{multipleChoice}
+\choice{True for all real numbers (where the denominators are nonzero)}
+\choice[correct]{False}
+\end{multipleChoice}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(a, continued)} Give a counterexample. Take $A=1$, $B=1$, and $C=1$. Then the
+left-hand side equals $\answer{2}$ and the right-hand side equals
+$\answer{0.5}$.
+
+\begin{solution}
+With $A=B=C=1$ the left-hand side is $\frac{1}{1}+\frac{1}{1}=2$, while the
+right-hand side is $\frac{1}{1+1}=\frac{1}{2}$. Since $2\neq\frac12$, the statement
+is false. (Adding fractions requires a \emph{common denominator}; you never add
+denominators.)
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} $\dfrac{A}{C} + \dfrac{B}{C} = \dfrac{A+B}{C}$
+
+\begin{multipleChoice}
+\choice[correct]{True for all real numbers (where $C\neq 0$)}
+\choice{False}
+\end{multipleChoice}
+
+\begin{solution}
+This one is true. The two fractions already have the common denominator $C$, so
+their numerators add directly:
+$\frac{A}{C}+\frac{B}{C}=\frac{A+B}{C}$.
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+What are the possible values of $x$ if $(x-4)(x+2)=0$?
+
+Enter the smaller value first: $x = \answer{-2}$ or $x = \answer{4}$.
+
+\begin{hint}
+If a product of two numbers is zero, at least one of the factors must be zero.
+Set each factor equal to $0$ and solve.
+\end{hint}
+
+\begin{solution}
+By the zero-product property, either $x-4=0$ or $x+2=0$, giving $x=4$ or $x=-2$.
+\end{solution}
+\end{problem}
+
+\begin{problem}
+Isolate $x$ to solve the equation
+\[ \frac{x}{3} - 5 = 6. \]
+
+$x = \answer{33}$
+
+\begin{hint}
+Undo the operations in the reverse order they were applied: first add $5$ to both
+sides, then multiply both sides by $3$.
+\end{hint}
+
+\begin{solution}
+Adding $5$ to both sides gives $\frac{x}{3}=11$, and multiplying both sides by $3$
+gives $x=33$. Check: $\frac{33}{3}-5=11-5=6$. \checkmark
+\end{solution}
+\end{problem}
+
+\begin{problem}
+Translate each of the following into decimal, percentage, and fraction form.
+
+\textbf{Do not round}; use appropriate notation for any repeating decimals. You do
+not need to reduce your fractions as long as they are in the form
+$\frac{A}{B}$.
+
+\begin{prompt}
+\textbf{(a)} The decimal is $0.3125$.
+
+As a percentage: $\answer{31.25}\%$. \qquad
+As a fraction: $\dfrac{\answer{3125}}{\answer{10000}}$
+
+\begin{hint}
+To go from a decimal to a percentage, multiply by $100$. For the fraction, read the
+decimal out loud --- $0.3125$ is ``$3125$ ten-thousandths''.
+\end{hint}
+
+\begin{solution}
+$0.3125 \times 100 = 31.25$, so $0.3125 = 31.25\%$. The last digit is in the
+ten-thousandths place, so $0.3125 = \frac{3125}{10000}$ (which reduces to
+$\frac{5}{16}$, though you were not required to reduce).
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} The percentage is $65\%$.
+
+As a decimal: $\answer{0.65}$. \qquad
+As a fraction: $\dfrac{\answer{65}}{\answer{100}}$
+
+\begin{solution}
+To go from a percentage to a decimal, divide by $100$: $65\% = 0.65$. A percentage
+is by definition a number of hundredths, so $65\% = \frac{65}{100}$ (which reduces
+to $\frac{13}{20}$).
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} The fraction is $\dfrac{7}{42}$.
+
+This is a repeating decimal. Its non-repeating part is $0.1$ and the single digit
+that repeats forever after that is $\answer{6}$.
+
+As a percentage, it is $16.\overline{6}\%$. Rounded to two decimal places, that
+percentage is $\answer[tolerance=0.005]{16.67}\%$.
+
+\begin{hint}
+First reduce: $\frac{7}{42}=\frac{1}{6}$. Then divide $1$ by $6$ by hand and watch
+for the digit that starts repeating.
+\end{hint}
+
+\begin{solution}
+$\frac{7}{42}=\frac16 = 0.1666\ldots = 0.1\overline{6}$, so the repeating digit is
+$6$. As a percentage, $0.1\overline{6}\times 100 = 16.\overline{6}\%$, which is
+about $16.67\%$.
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\end{document}

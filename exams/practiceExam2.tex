@@ -1,0 +1,357 @@
+\documentclass[12pt]{ximera}
+\title{Practice Exam 2}
+\begin{document}
+\begin{abstract}
+Practice for Exam 2, covering Sections 7.5--8.2: when each counting technique
+applies, counting lineups with and without regard to position, conditional
+probability and independence, and a two-draw tree diagram read backwards.
+\end{abstract}
+\maketitle
+
+\section*{Practice Exam 2}
+
+Give probabilities as exact fractions, decimals, or percentages; do not round unless
+specifically asked to do so.
+
+Formulas that may be useful:
+\[
+P(E)=\frac{n(E)}{n(S)}, \qquad P(E\mid F)=\frac{P(E\cap F)}{P(F)},
+\]
+\[
+P(N,k)=\frac{N!}{(N-k)!}, \qquad C(N,k)=\frac{N!}{k!\,(N-k)!}.
+\]
+
+\begin{problem}
+Assess whether each of the following claims is true or false.
+
+\begin{prompt}
+\textbf{(a)} Claim: the multiplication principle can be used to count any situation
+that can be framed as a series of choices made one at a time.
+
+\begin{multipleChoice}
+\choice{True}
+\choice[correct]{False}
+\end{multipleChoice}
+
+\begin{hint}
+Can you think of a situation that is naturally described as choosing things one at a
+time, but where multiplying the stage counts gives the wrong answer? Part (b) is a
+clue.
+\end{hint}
+
+\begin{solution}
+False. The multiplication principle multiplies the number of options at each stage,
+which counts \emph{ordered} sequences of choices. When the thing being counted does
+not depend on the order of the choices, that overcounts.
+
+Choosing a committee of $3$ from $20$ people is the standard counterexample: you can
+certainly frame it as three choices made one at a time, and multiplying gives
+$20\cdot 19\cdot 18=6840$ --- but that counts each committee $3!=6$ times, once per
+order. The correct count is $C(20,3)=1140$.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Claim: the multiplication principle can be used to count how many
+subsets of a particular size there are for a given set.
+
+\begin{multipleChoice}
+\choice{True}
+\choice[correct]{False}
+\end{multipleChoice}
+
+\begin{solution}
+False, for exactly the reason in part (a): subsets are unordered, so multiplying
+stage counts gives each subset once for every order in which its elements could have
+been picked. That is what the division by $k!$ in
+\[ C(n,k)=\frac{n!}{k!\,(n-k)!} \]
+corrects for.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} Claim: the multiplication principle can be used to count how many
+possible subsets there are, of any size, for a given set.
+
+\begin{multipleChoice}
+\choice[correct]{True}
+\choice{False}
+\end{multipleChoice}
+
+\begin{solution}
+True. Here the multiplication principle applies cleanly, because the choices are made
+per \emph{element} rather than per slot: go through the $n$ elements one at a time and
+decide ``in or out''. That is $n$ independent choices with $2$ options each, giving
+\[ 2\cdot 2\cdots 2 = 2^n \]
+subsets, with no double-counting --- each subset arises from exactly one sequence of
+in/out decisions.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(d)} Claim: two events $E$ and $F$ are \emph{independent} if and only if
+$P(E\mid F) = P(F\mid E)$.
+
+\begin{multipleChoice}
+\choice{True}
+\choice[correct]{False}
+\end{multipleChoice}
+
+\begin{solution}
+False. Independence means $P(E\mid F)=P(E)$ --- conditioning on $F$ does not change
+the probability of $E$.
+
+The stated condition $P(E\mid F)=P(F\mid E)$ is a different thing entirely: since
+\[
+P(E\mid F)=\frac{P(E\cap F)}{P(F)} \quad\text{and}\quad P(F\mid E)=\frac{P(E\cap F)}{P(E)},
+\]
+those two are equal precisely when $P(E)=P(F)$ (assuming both are nonzero). Two
+events can have equal probabilities without being independent, and can be independent
+without having equal probabilities.
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Determine which among the following should be counted using the multiplication
+principle, permutations, or combinations, and give the count.
+
+\begin{prompt}
+\textbf{(a)} A teacher wants to assign a line leader, a lunch helper, and a board
+eraser among a class of $20$ students.
+
+\begin{multipleChoice}
+\choice[correct]{Permutations}
+\choice{Combinations}
+\choice{Multiplication principle with repetition}
+\end{multipleChoice}
+
+The count is $\answer{6840}$.
+
+\begin{solution}
+The three jobs are distinct, so order matters, and one student cannot hold two jobs.
+That is a permutation:
+\[ P(20,3)=\frac{20!}{17!}=20\cdot 19\cdot 18 = 6840. \]
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} A group of friends is deciding which five champions from a list of $20$
+they think make the best team for an online game.
+
+\begin{multipleChoice}
+\choice{Permutations}
+\choice[correct]{Combinations}
+\choice{Multiplication principle with repetition}
+\end{multipleChoice}
+
+The count is $\answer{15504}$.
+
+\begin{solution}
+A team is just a set of five champions --- no ordering, no repeats:
+\[ C(20,5)=\frac{20!}{5!\,15!}=15{,}504. \]
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} Four cross-country runners out of a team of $10$ will represent the team
+in a half-marathon.
+
+\begin{multipleChoice}
+\choice{Permutations}
+\choice[correct]{Combinations}
+\choice{Multiplication principle with repetition}
+\end{multipleChoice}
+
+The count is $\answer{210}$.
+
+\begin{solution}
+The four runners are simply a subset of the team; no one is assigned a distinct role,
+so order does not matter:
+\[ C(10,4)=\frac{10!}{4!\,6!}=210. \]
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Suppose an NBA team rosters $15$ players. Only five of their players are allowed on
+the court at a time during a game --- so let's consider their possible lineups.
+
+\begin{prompt}
+\textbf{(a)} How many lineups are there of five players from a team of $15$ if we just
+consider them a subset?
+
+$\answer{3003}$
+
+\begin{solution}
+\[ C(15,5)=\frac{15!}{5!\,10!}=3003. \]
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Suppose we're interested in one particular player on the team, Jalen. How
+many subsets of five players from the team of $15$ include Jalen?
+
+$\answer{1001}$
+
+\begin{hint}
+If Jalen is definitely in, how many roster spots are left to fill, and from how many
+remaining players?
+\end{hint}
+
+\begin{solution}
+Jalen takes one of the five spots, so $4$ spots remain, to be filled from the other
+$14$ players:
+\[ C(14,4)=\frac{14!}{4!\,10!}=1001. \]
+As a check, $\frac{1001}{3003}=\frac13$ --- exactly the fraction of five-player
+subsets you would expect to contain any given player, since $\frac{5}{15}=\frac13$.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} How many lineups are there of five players from a team of $15$ if we
+assign a specific position to each of the five? (So the same five players in
+different positions counts as a distinct lineup.)
+
+$\answer{360360}$
+
+\begin{solution}
+Now order matters, so this is a permutation:
+\[ P(15,5)=15\cdot 14\cdot 13\cdot 12\cdot 11 = 360{,}360. \]
+This is $5!=120$ times the answer to part (a), since each five-player subset can be
+arranged among the five positions in $120$ ways.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(d)} How many lineups of five players from the team of $15$, where we care
+about distinguishing specific positions, include Jalen as Point Guard?
+
+$\answer{24024}$
+
+\begin{solution}
+Jalen is locked into one specific position, so the remaining $4$ positions must be
+filled, in order, from the other $14$ players:
+\[ P(14,4)=14\cdot 13\cdot 12\cdot 11 = 24{,}024. \]
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Use the formulas for conditional probabilities to solve the following.
+
+Suppose $P(E)=0.4$, $P(F)=0.6$, and $P(E\cap F)=0.24$.
+
+\begin{prompt}
+\textbf{(a)} What is $P(F\mid E)$?
+
+$\answer[tolerance=0.001]{0.6}$
+
+\begin{solution}
+\[ P(F\mid E)=\frac{P(E\cap F)}{P(E)}=\frac{0.24}{0.4}=0.6. \]
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Are the events $E$ and $F$ independent?
+
+\begin{multipleChoice}
+\choice[correct]{Yes}
+\choice{No}
+\end{multipleChoice}
+
+\begin{solution}
+Yes. We found $P(F\mid E)=0.6$, and $P(F)=0.6$ as well, so conditioning on $E$ does
+not change the probability of $F$.
+
+Equivalently, $P(E)\cdot P(F)=0.4\times 0.6=0.24=P(E\cap F)$, which is the
+multiplication test for independence.
+
+Contrast this with the corresponding problem on Homework 5, where $P(E\cap F)$ was
+$0.15$ instead of $0.24$ and the events were \emph{not} independent.
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Suppose a gumball machine has only a few gumballs left: $3$ red (R) and $2$ yellow
+(Y). You and a friend are both going to take one --- first your friend, and then you.
+Label your friend's gumball color with subscript $1$ and yours with subscript $2$.
+
+Enter every answer in this problem as a fraction.
+
+\begin{prompt}
+\textbf{(a, first draw)} $P(R_1)=\answer{3/5}$ \qquad $P(Y_1)=\answer{2/5}$
+
+\begin{solution}
+There are $5$ gumballs, $3$ red and $2$ yellow, so $P(R_1)=\frac35$ and
+$P(Y_1)=\frac25$.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(a, second draw)} After your friend takes one, four gumballs remain.
+
+$P(R_2\mid R_1)=\answer{1/2}$ \qquad $P(Y_2\mid R_1)=\answer{1/2}$
+
+\smallskip
+$P(R_2\mid Y_1)=\answer{3/4}$ \qquad $P(Y_2\mid Y_1)=\answer{1/4}$
+
+\begin{solution}
+If your friend took red, the remaining pool is $2$ red and $2$ yellow:
+$\frac24=\frac12$ each. If your friend took yellow, the pool is $3$ red and $1$
+yellow: $\frac34$ and $\frac14$.
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(a, outcomes)} Multiply along each path.
+
+$P(R_1\cap R_2)=\answer{3/10}$ \qquad $P(R_1\cap Y_2)=\answer{3/10}$
+
+\smallskip
+$P(Y_1\cap R_2)=\answer{3/10}$ \qquad $P(Y_1\cap Y_2)=\answer{1/10}$
+
+\begin{solution}
+\[
+P(R_1\cap R_2)=\tfrac35\cdot\tfrac12=\tfrac{3}{10},\qquad
+P(R_1\cap Y_2)=\tfrac35\cdot\tfrac12=\tfrac{3}{10},
+\]
+\[
+P(Y_1\cap R_2)=\tfrac25\cdot\tfrac34=\tfrac{6}{20}=\tfrac{3}{10},\qquad
+P(Y_1\cap Y_2)=\tfrac25\cdot\tfrac14=\tfrac{2}{20}=\tfrac{1}{10}.
+\]
+These four add to $\frac{3+3+3+1}{10}=1$. \checkmark
+\end{solution}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} If you know you've got a red gumball, what is the probability that your
+friend got a red gumball as well --- that is, what is $P(R_1\mid R_2)$?
+
+$\answer{1/2}$
+
+\begin{hint}
+This runs the tree \emph{backwards}: the tree gives you $P(R_2\mid R_1)$, but you want
+$P(R_1\mid R_2)$. Start with $P(R_1\mid R_2)=\frac{P(R_1\cap R_2)}{P(R_2)}$ and find
+$P(R_2)$ by adding the two paths that end in $R_2$.
+\end{hint}
+
+\begin{solution}
+First find $P(R_2)$ by adding both paths that end with you getting red:
+\[
+P(R_2)=P(R_1\cap R_2)+P(Y_1\cap R_2)=\tfrac{3}{10}+\tfrac{3}{10}=\tfrac{6}{10}=\tfrac35.
+\]
+Then
+\[
+P(R_1\mid R_2)=\frac{P(R_1\cap R_2)}{P(R_2)}=\frac{3/10}{3/5}=\frac{3}{10}\cdot\frac53=\frac12.
+\]
+
+Worth noticing: $P(R_2)=\frac35$ is the same as $P(R_1)$. Before you look at either
+gumball, your draw is just as likely to be red as your friend's --- the order in which
+you take them does not matter.
+\end{solution}
+\end{prompt}
+\end{problem}
+
+\end{document}
