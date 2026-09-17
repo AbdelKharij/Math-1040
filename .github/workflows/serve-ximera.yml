@@ -42,12 +42,11 @@ jobs:
 
       - name: Build and publish Ximera courses
         env:
-          ### Use .xmKeyfile for test/demo
-          # GPG_KEY: ${{ secrets.GPG_KEY }}
-          # GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
+          # Publishing key comes from Actions secrets (never commit .xmKeyFile to a public repo)
+          GPG_KEY: ${{ secrets.GPG_KEY }}
+          GPG_KEY_ID: ${{ secrets.GPG_KEY_ID }}
           XIMERA_URL: "https://xerxes.ximera.org/"
           XIMERA_NAME: ${{ github.repository_owner }}-${{ github.event.repository.name }}
-          XM_COMPILE_SEQUENCE: "html,handout.pdf"
           # XIMERA_NAME: ${{ vars.XIMERA_NAME }}*${{ github.ref_name }}
           # XIMERA_NAME: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ github.ref_name }}
         run: |
