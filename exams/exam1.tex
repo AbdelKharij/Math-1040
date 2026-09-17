@@ -33,12 +33,12 @@ written as the complement of their intersection. That is, for any sets $A$ and $
 \choice{False}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 True --- this is exactly one of De Morgan's laws.
 
 In words: to be outside the overlap of $A$ and $B$, you must be missing from at least
 one of them, which is to say you are in $\olsi{A}$ or in $\olsi{B}$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -69,13 +69,13 @@ $\left(A\cup B\right)\cap \olsi{C}$.
 Is the shaded region inside $C$ or outside $C$?
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 False. Every shaded point lies \emph{inside} $C$, so the diagram shows
 \[ \left(A\cup B\right)\cap C, \]
 not $\left(A\cup B\right)\cap\olsi{C}$. The claimed set would instead be the parts of
 $A$ and $B$ that stick out of $C$ --- exactly the unshaded portions of those two
 circles.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -90,9 +90,9 @@ A= \set{0,2,4,6,8},\quad B= \set{0,3,6,9},\quad C= \set{1,2,3,4,5}.
 
 $\answer{2}$
 
-\begin{solution}
+\begin{feedback}
 $A\cap B=\set{0,6}$, which has $2$ elements, so $n(A\cap B)=2$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -105,12 +105,12 @@ $\olsi{A\cup C}=\set{\answer{7},\ \answer{9},\ \answer{10}}$
 Build $A\cup C$ first, then take everything in $\mathcal{U}$ that is left over.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 First,
 \[ A\cup C=\set{0,2,4,6,8}\cup\set{1,2,3,4,5}=\set{0,1,2,3,4,5,6,8}. \]
 The elements of $\mathcal{U}$ not in that union are $7$, $9$, and $10$, so
 \[ \olsi{A\cup C}=\set{7,9,10}. \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -125,11 +125,11 @@ report liking \emph{both} of these animals.
 
 $\answer{20}$ students.
 
-\begin{solution}
+\begin{feedback}
 Inclusion-exclusion gives $n(W\cup A)=n(W)+n(A)-n(W\cap A)$, so
 \[ 65 = 50+35-n(W\cap A) = 85 - n(W\cap A), \]
 and therefore $n(W\cap A)=85-65=20$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -142,11 +142,11 @@ Give your answer as a fraction in lowest terms: $\answer{3/7}$
 ``Only wallabies'' means the wallaby-likers with the both-likers removed.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Of the $50$ who like wallabies, $20$ also like axolotls, so $50-20=30$ like only
 wallabies. Out of $70$ students,
 \[ P(\text{only wallabies})=\frac{30}{70}=\frac{3}{7}\approx 0.429. \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -195,7 +195,7 @@ you cannot get that way --- find it last, using the fact that all eight regions 
 total $50$ plants.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Working outward from the center:
 \begin{itemize}
 \item All three: $6$, given.
@@ -209,7 +209,7 @@ altogether, the remaining region --- smooth only --- contains $50-42=8$ plants.
 
 Note that the total number of smooth-pea plants was never given directly; it has to
 be recovered from the grand total of $50$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -218,10 +218,10 @@ be recovered from the grand total of $50$.
 
 $\answer{8}$ plants.
 
-\begin{solution}
+\begin{feedback}
 This describes the ``smooth only'' region, which part (a) found to be
 $50-42=8$ plants.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -229,10 +229,10 @@ $50-42=8$ plants.
 
 $\answer{29}$ plants.
 
-\begin{solution}
+\begin{feedback}
 Add the four regions inside the S circle:
 \[ 8 + 1 + 14 + 6 = 29 \text{ plants.} \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -241,12 +241,12 @@ plant from this experiment has smooth, green peas? Reduce your answer.
 
 The odds are $\answer{2}$ to $\answer{3}$.
 
-\begin{solution}
+\begin{feedback}
 The plants with both smooth and green peas are the ``G and S only'' region plus the
 center: $14+6=20$. The other $50-20=30$ plants do not have both traits. So the odds
 are
 \[ 20:30 = 2:3. \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -269,11 +269,11 @@ $\answer{72}$
 Imagine a table with one row per d12 result and one column per d6 result.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 By the multiplication principle, there are
 \[ 12\cdot 6 = 72 \]
 equally likely $(\text{d12},\text{d6})$ pairs.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -281,13 +281,13 @@ equally likely $(\text{d12},\text{d6})$ pairs.
 
 Give your answer as a fraction in lowest terms: $\answer{5/12}$
 
-\begin{solution}
+\begin{feedback}
 A hit means the d12 shows $8$, $9$, $10$, $11$, or $12$ --- five of its twelve faces.
 So
 \[ P(\text{hit})=\frac{5}{12}. \]
 (Counting outcome pairs instead gives $\frac{5\cdot 6}{72}=\frac{30}{72}=\frac{5}{12}$,
 the same answer.)
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -300,7 +300,7 @@ Give your answer as a fraction in lowest terms: $\answer{5/36}$
 ``More than $4$'' on a d6 means a $5$ or a $6$. The two dice are independent.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 More than $4$ damage means the d6 shows $5$ or $6$, which has probability
 $\frac26=\frac13$. The dice are independent, so
 \[
@@ -308,7 +308,7 @@ P(\text{hit and}>4)=\frac{5}{12}\cdot\frac13=\frac{5}{36}.
 \]
 Equivalently, $5\cdot 2=10$ of the $72$ outcome pairs qualify, and
 $\frac{10}{72}=\frac{5}{36}$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -323,7 +323,7 @@ These two events overlap --- rolling a $12$ together with a $5$ or $6$ satisfies
 Use inclusion-exclusion so you do not count that overlap twice.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Count outcome pairs out of $72$.
 \begin{itemize}
 \item Critical hit: d12 $=12$ with any d6, which is $6$ pairs.
@@ -336,7 +336,7 @@ P = \frac{14}{72} = \frac{7}{36}\approx 0.194.
 \]
 The subtraction matters here: adding $\frac{1}{12}+\frac{5}{36}=\frac{8}{36}$ would
 double-count the two outcomes that are both a critical hit and a high-damage hit.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 

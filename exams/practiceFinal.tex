@@ -23,7 +23,7 @@ from their corresponding strategy).
 \choice[correct]{False}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 False. Plenty of games have no saddle point. For instance,
 \[
 \begin{array}{c|c|c|}
@@ -36,7 +36,7 @@ has row minima $-3$ and $-1$ (maximin $-1$) and column maxima $4$ and $1$
 (minimax $1$). Since $-1\neq 1$, there is no saddle point --- whichever cell you
 land in, one of the two players would rather have chosen differently. Such games have
 no stable pure strategy, and both players are better off mixing.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -49,12 +49,12 @@ strategy associated with that outcome.
 \choice{False}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 True, because the two players choose independently --- neither can see the other's
 choice before committing. For independent events,
 $P(E\cap F)=P(E)\cdot P(F)$, so the probability of a given cell is the product of the
 corresponding row and column probabilities.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -79,14 +79,14 @@ Both: $\answer{55}$ \qquad
 T only: $\answer{40}$ \qquad
 Neither: $\answer{45}$
 
-\begin{solution}
+\begin{feedback}
 The overlap is $55$, so
 \[
 \text{S only} = 115-55 = 60, \qquad \text{T only} = 95-55 = 40.
 \]
 Those three regions total $60+55+40=155$, leaving $200-155=45$ people who would
 accept neither name.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -99,12 +99,12 @@ Give your answer as a fraction in lowest terms: $\answer{8/19}$
 Restrict to the $95$ people in the T circle. How many of them lie outside S?
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Of the $95$ people who would accept ``taco'', $40$ are in the ``T only'' region, so
 \[
 P\!\left(\olsi{S}\mid T\right)=\frac{40}{95}=\frac{8}{19}\approx 0.421.
 \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -133,7 +133,7 @@ When a player may take $1$ through $m$ stones, the losing positions are the mult
 of $m+1$. Here $m=4$.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 With moves of $1$ to $4$ stones, the losing positions are the multiples of $5$: from a
 pile of $5$, any move leaves between $1$ and $4$, which your opponent simply takes to
 win.
@@ -145,7 +145,7 @@ $10$, then $5$, then $0$, so Alice takes the last stone.
 
 Compare this with the version on the Final Exam, where moves of $1$ to $3$ made the
 multiples of $4$ the losing positions.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -163,10 +163,10 @@ $\answer{5040}$
 The four roles are distinct, and one actor cannot play two roles.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 This is a permutation, since the roles are distinguishable:
 \[ P(10,4)=10\cdot 9\cdot 8\cdot 7 = 5040. \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -176,12 +176,12 @@ of Hades and Orpheus, how many different ways can the roles be assigned?
 
 $\answer{400}$
 
-\begin{solution}
+\begin{feedback}
 The two women's roles are filled from the $5$ women, in order:
 $P(5,2)=5\cdot 4=20$. Independently, the two men's roles are filled from the $5$ men:
 $P(5,2)=20$. By the multiplication principle,
 \[ 20 \cdot 20 = 400. \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -191,13 +191,13 @@ Hades and Orpheus?
 
 As a percentage rounded to two decimal places: $\answer[tolerance=0.005]{7.94}\%$
 
-\begin{solution}
+\begin{feedback}
 Divide part (b) by part (a):
 \[
 P = \frac{400}{5040} = \frac{5}{63} \approx 0.0794,
 \]
 about $7.94\%$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -223,10 +223,10 @@ Does a saddle point exist?
 
 If so, its value is $\answer{0}$.
 
-\begin{solution}
+\begin{feedback}
 Row minima $-3$ and $0$ give a maximin of $0$; column maxima $0$ and $2$ give a
 minimax of $0$. They agree, so the saddle point is $0$, at entry $(b,c)$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -248,11 +248,11 @@ Does a saddle point exist?
 
 If so, its value is $\answer{1}$.
 
-\begin{solution}
+\begin{feedback}
 Row minima are $-1$, $1$, and $-2$, so the maximin is $1$. Column maxima are $1$ and
 $2$, so the minimax is $1$. They agree, giving a saddle point of $1$ at entry
 $(b,d)$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -271,10 +271,10 @@ Does a saddle point exist?
 \choice[correct]{No}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 Row minima $-3$ and $-1$ give a maximin of $-1$; column maxima $4$ and $1$ give a
 minimax of $1$. Since $-1\neq 1$, there is no saddle point.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -296,11 +296,11 @@ Does a saddle point exist?
 
 If so, its value is $\answer{0}$.
 
-\begin{solution}
+\begin{feedback}
 Row minima are $-1$, $-3$, and $0$, so the maximin is $0$. Column maxima are $2$, $3$,
 and $0$, so the minimax is $0$. They agree, giving a saddle point of $0$ at entry
 $(c,f)$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -331,7 +331,7 @@ Give each entry in cents.
 is a negative entry for Alice.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Take each cell in turn:
 \begin{itemize}
 \item Both show $50$\textcent: same coins, so Alice wins $50+50=100$\textcent, giving $+100$.
@@ -341,7 +341,7 @@ Take each cell in turn:
 \end{itemize}
 
 Note this game has no saddle point: the maximin is $-75$ and the minimax is $50$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -370,7 +370,7 @@ Which should she choose?
 \choice{Stay home}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 \begin{align*}
 E(\text{go}) &= 0.30(-10) + 0.30(2) + 0.40(7)\\
 &= -3.0 + 0.6 + 2.8 = 0.4,\\[4pt]
@@ -380,7 +380,7 @@ E(\text{stay home}) &= 0.30(10) + 0.30(-5) + 0.40(-3)\\
 Since $0.4 > 0.3$, Alice should go to the game --- though only barely. A small change
 in her ratings or in the probabilities would flip the recommendation, which is worth
 noticing: expected value gives a clear answer, but not always a robust one.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -400,7 +400,7 @@ time and his Ace $35\%$?
 
 $\answer[tolerance=0.0005]{-0.95}$
 
-\begin{solution}
+\begin{feedback}
 The four cell probabilities are
 \[
 \begin{array}{ll}
@@ -416,7 +416,7 @@ E &= 0.39(-10) + 0.21(15) + 0.26(10) + 0.14(-20)\\
 \end{align*}
 With these mixes the game favors Bob slightly, costing Alice about $0.95$ points per
 play.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 

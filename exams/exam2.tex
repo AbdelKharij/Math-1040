@@ -33,12 +33,12 @@ elements CANNOT be selected more than once.
 \choice{False}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 True. Both formulas count selections \emph{without} replacement --- that is exactly
 why the factors run $N, N-1, N-2,\ldots$ instead of staying at $N$. When repetition
 \emph{is} allowed, you use the multiplication principle instead, as in $4^7$ or
 $13^5$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -50,7 +50,7 @@ order matters.
 \choice[correct]{False}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 False --- it is the reverse. The multiplication principle works particularly well
 when order matters; the permutation formula is derived from it. For instance,
 choosing first, second, and third place among $20$ students is
@@ -58,7 +58,7 @@ $20\cdot 19\cdot 18$, a direct application.
 
 Where the multiplication principle needs correcting is when order does \emph{not}
 matter, since then it counts each unordered selection several times.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -70,14 +70,14 @@ a whole number.
 \choice{False}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 True. Both formulas count a number of things --- arrangements or subsets --- and you
 cannot have a fractional number of subsets, so the result must be a whole number.
 
 This is worth remembering as an error check: $C(N,k)$ contains a division by
 $k!\,(N-k)!$, and if your arithmetic ever leaves you with a fraction or decimal, you
 have made a mistake somewhere.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -96,12 +96,12 @@ This is $P(A\mid W)$ --- restrict attention to the $50$ wallaby-likers and ask h
 many of them also like axolotls.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Restricting to the $50$ students who like wallabies, $20$ of them also like axolotls:
 \[
 P(A\mid W)=\frac{n(A\cap W)}{n(W)}=\frac{20}{50}=\frac25=0.4.
 \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -114,14 +114,14 @@ independent events?
 \choice[correct]{No}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 No. From part (a), $P(A\mid W)=0.4$. But overall,
 \[
 P(A)=\frac{35}{70}=0.5.
 \]
 Since $0.4\neq 0.5$, the events are not independent --- knowing a student likes
 wallabies makes it somewhat \emph{less} likely that they like axolotls.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -142,12 +142,12 @@ are possible?
 
 The count is $\answer{9034502400}$.
 
-\begin{solution}
+\begin{feedback}
 A ranking is ordered, and no Pok\'emon appears twice, so this is a permutation:
 \[
 P(100,5)=100\cdot 99\cdot 98\cdot 97\cdot 96 = 9{,}034{,}502{,}400.
 \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -163,12 +163,12 @@ ways could they choose which $10$ to perform?
 
 The count is $\answer{847660528}$.
 
-\begin{solution}
+\begin{feedback}
 The question asks only \emph{which} ten are chosen, not in what order:
 \[
 C(40,10)=\frac{40!}{10!\,30!}=847{,}660{,}528.
 \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -183,11 +183,11 @@ schedule these assignments?
 
 $\answer{210}$
 
-\begin{solution}
+\begin{feedback}
 The assignments are distinct and no day is reused, so this is a permutation of $3$
 days chosen from $7$:
 \[ P(7,3)=7\cdot 6\cdot 5 = 210. \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -202,13 +202,13 @@ Repeats are allowed here, so this is the multiplication principle. Which number 
 the base and which is the exponent?
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Each of the $5$ friends independently picks one of $13$ classes, and repeats are
 allowed:
 \[ 13^5 = 371{,}293. \]
 Note it is $13^5$, not $5^{13}$: there are $5$ decisions to make, each with $13$
 options.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -222,9 +222,9 @@ negative cases with a probability of $0.9$.
 \textbf{(a, first branches)} $P(H)=\answer[tolerance=0.0001]{0.01}$ \qquad
 $P(\text{no H})=\answer[tolerance=0.0001]{0.99}$
 
-\begin{solution}
+\begin{feedback}
 The disease rate is given as $0.01$, and its complement is $1-0.01=0.99$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -242,13 +242,13 @@ $P(\text{neg}\mid \text{no H})=\answer[tolerance=0.0001]{0.9}$
 $P(\text{pos}\mid H)$. The other two branches in each pair are complements.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Accurately identifying positive cases means $P(\text{pos}\mid H)=0.7$, so the
 false-negative branch is $P(\text{neg}\mid H)=1-0.7=0.3$.
 
 Accurately identifying negative cases means $P(\text{neg}\mid\text{no H})=0.9$, so the
 false-positive branch is $P(\text{pos}\mid\text{no H})=1-0.9=0.1$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -261,7 +261,7 @@ $P(H\cap\text{neg})=\answer[tolerance=0.00005]{0.003}$
 $P(\text{no H}\cap\text{pos})=\answer[tolerance=0.00005]{0.099}$ \qquad
 $P(\text{no H}\cap\text{neg})=\answer[tolerance=0.00005]{0.891}$
 
-\begin{solution}
+\begin{feedback}
 \[
 \begin{array}{ll}
 P(H\cap\text{pos})=(0.01)(0.7)=0.0070 &
@@ -271,7 +271,7 @@ P(\text{no H}\cap\text{neg})=(0.99)(0.9)=0.8910
 \end{array}
 \]
 These four add to $1.0000$. \checkmark
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -286,7 +286,7 @@ $\answer{7}\%$
 Add the two paths that end in a positive test to get $P(\text{pos})$, then divide.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Two paths end in a positive test, so
 \[
 P(\text{pos}) = 0.0070 + 0.0990 = 0.1060,
@@ -303,7 +303,7 @@ of healthy dogs who test positive vastly outnumber the $0.7\%$ of dogs that are 
 sick and correctly flagged. A positive result on this test still means the dog
 probably does not have heartworm --- which is why a positive screen is followed up
 with a more specific confirmatory test.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 

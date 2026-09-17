@@ -27,13 +27,13 @@ $\answer{4923689695575}$
 A committee is unordered, and there are $33+17=50$ senators.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Choosing an unordered committee of $16$ from $50$ senators:
 \[
 C(50,16)=\frac{50!}{16!\,34!}=4{,}923{,}689{,}695{,}575,
 \]
 close to five trillion possible committees.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -47,12 +47,12 @@ Choose the Republicans and the Democrats separately, then combine the two
 independent choices with the multiplication principle.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Pick $11$ of the $33$ Republicans and, independently, $5$ of the $17$ Democrats:
 \[
 C(33,11)\cdot C(17,5) = 193{,}536{,}720 \cdot 6{,}188 = 1{,}197{,}605{,}223{,}360.
 \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -62,7 +62,7 @@ Democrats?
 
 As a percentage rounded to two decimal places: $\answer[tolerance=0.005]{24.32}\%$
 
-\begin{solution}
+\begin{feedback}
 Divide part (b) by part (a):
 \[
 P = \frac{C(33,11)\cdot C(17,5)}{C(50,16)}
@@ -74,7 +74,7 @@ about $24.32\%$.
 So the actual party split of the committee is a fairly likely one --- it is close to
 proportional to the Senate as a whole, and near-proportional splits are the most
 common outcome of a random draw.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -95,12 +95,12 @@ deck of $52$ and shown to the audience \emph{without} respect to their order?
 
 $\answer{270725}$
 
-\begin{solution}
+\begin{feedback}
 Order does not matter, so this is a combination:
 \[
 C(52,4)=\frac{52\cdot 51\cdot 50\cdot 49}{4\cdot 3\cdot 2\cdot 1}=270{,}725.
 \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -110,14 +110,14 @@ drawn?
 
 $\answer{6497400}$
 
-\begin{solution}
+\begin{feedback}
 Now order matters, so this is a permutation:
 \[
 P(52,4)=52\cdot 51\cdot 50\cdot 49 = 6{,}497{,}400.
 \]
 This is exactly $4!=24$ times the answer to part (a), since each unordered set of
 four cards can be shown in $24$ different orders.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 For the remaining parts, either count can be used, as long as you count the event the
@@ -134,14 +134,14 @@ As a percentage rounded to two decimal places: $\answer[tolerance=0.005]{5.52}\%
 How many four-card sets consist entirely of red cards? There are $26$ red cards.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 There are $26$ red cards, so the number of all-red four-card hands is
 $C(26,4)=14{,}950$. Therefore
 \[
 P(\text{4 red}) = \frac{C(26,4)}{C(52,4)}=\frac{14{,}950}{270{,}725}=\frac{46}{833}\approx 0.0552,
 \]
 about $5.52\%$ --- unlikely, but hardly astonishing.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -150,13 +150,13 @@ Hearts in a row from the deck of $52$?
 
 As a percentage rounded to two decimal places: $\answer[tolerance=0.005]{0.26}\%$
 
-\begin{solution}
+\begin{feedback}
 There are $13$ Hearts, so
 \[
 P(\text{4 Hearts}) = \frac{C(13,4)}{C(52,4)}=\frac{715}{270{,}725}=\frac{11}{4165}\approx 0.00264,
 \]
 about $0.26\%$ --- roughly $1$ chance in $379$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -166,7 +166,7 @@ four Aces in a row from the deck of $52$?
 There is exactly one four-card hand consisting of all four aces, so this probability
 is $1$ in $\answer{270725}$.
 
-\begin{solution}
+\begin{feedback}
 Only one set of four cards is all four aces, namely $C(4,4)=1$, so
 \[
 P(\text{4 Aces}) = \frac{1}{C(52,4)}=\frac{1}{270{,}725}\approx 0.0000037,
@@ -175,7 +175,7 @@ about $0.00037\%$.
 
 Taken together, the three tricks are the point of the problem: the last one alone is
 a one-in-$270{,}725$ event, so the deck was almost certainly not randomly shuffled.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 

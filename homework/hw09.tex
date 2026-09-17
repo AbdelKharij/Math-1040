@@ -27,10 +27,10 @@ probability of guessing correctly on each individual question?
 
 As a fraction: $\answer{1/5}$
 
-\begin{solution}
+\begin{feedback}
 One of the five answers is correct and the guess is random, so the probability is
 $\frac15=0.2$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -43,14 +43,14 @@ This probability is $1$ in $\answer{15625}$.
 All six guesses must be correct, and they are independent, so multiply.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 This is the binomial formula with $n=6$, $k=6$:
 \[
 P(X=6)=C(6,6)\left(\tfrac15\right)^6\left(\tfrac45\right)^0=\left(\tfrac15\right)^6
 =\frac{1}{15{,}625}\approx 0.000064,
 \]
 which is about $0.0064\%$ --- and rounds to $0\%$ at the nearest whole percent.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -64,7 +64,7 @@ As a percentage rounded to two decimal places: $\answer[tolerance=0.005]{1.70}\%
 probabilities and add them.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 With $n=6$ and $p=\frac15$,
 \[
 P(X=4)=C(6,4)(0.2)^4(0.8)^2 = 15(0.0016)(0.64)=0.01536,
@@ -80,7 +80,7 @@ Adding,
 P(X\ge 4)=0.01536+0.001536+0.000064=0.01696=\frac{53}{3125},
 \]
 about $1.70\%$, which rounds to $2\%$ at the nearest whole percent.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -102,14 +102,14 @@ Each entry is the sum of the two entries above it, and every row starts and ends
 $1$. Row $10$ is $1, 10, 45, 120, 210, 252, 210, 120, 45, 10, 1$.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Row $11$ of Pascal's Triangle is
 \[
 1,\ 11,\ 55,\ 165,\ 330,\ 462,\ 462,\ 330,\ 165,\ 55,\ 11,\ 1.
 \]
 For example $C(11,4)=C(10,3)+C(10,4)=120+210=330$. Notice the row is symmetric,
 since $C(11,k)=C(11,11-k)$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -119,7 +119,7 @@ eleven attempted 3-point shots in a game?
 
 As a percentage rounded to two decimal places: $\answer[tolerance=0.005]{23.65}\%$
 
-\begin{solution}
+\begin{feedback}
 With $n=11$, $p=0.4$, and $k=4$,
 \[
 P(X=4)=C(11,4)(0.4)^4(0.6)^7 = 330\,(0.0256)(0.0279936)\approx 0.23649,
@@ -128,7 +128,7 @@ about $23.65\%$.
 
 Note that four out of eleven is the single most likely outcome, and it still happens
 less than a quarter of the time.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -142,7 +142,7 @@ As a percentage rounded to two decimal places: $\answer[tolerance=0.005]{2.93}\%
 $C(11,10)=11$, and $C(11,11)=1$ from part (a).
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 With $n=11$ and $p=0.4$:
 \[
 P(X=8)=165\,(0.4)^8(0.6)^3 \approx 0.023357,
@@ -162,7 +162,7 @@ P(X\ge 8)\approx 0.029281,
 \]
 about $2.93\%$, which rounds to $3\%$ at the nearest whole percent. A game like that
 happens roughly two or three times per season.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -193,7 +193,7 @@ Use $n=5$ and $p=0.585$, so $1-p=0.415$. As a check on your work, all six
 probabilities must add to $100\%$.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 With $n=5$, $p=0.585$, and $1-p=0.415$:
 \[
 \begin{array}{ll}
@@ -206,7 +206,7 @@ P(X=5)=(0.585)^5 \approx 0.0685 & \to 6.85\%
 \end{array}
 \]
 These sum to $100.00\%$, as a probability distribution must.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -220,7 +220,7 @@ Rather than adding four probabilities, use the complement: ``at least two'' is
 everything except $0$ wins and $1$ win.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Using the complement,
 \[
 P(X\ge 2) = 1 - P(X=0) - P(X=1) = 1 - 0.0123 - 0.0868 = 0.9009,
@@ -229,7 +229,7 @@ about $90.09\%$.
 
 Adding $P(X=2)$ through $P(X=5)$ directly gives the same answer, but requires four
 additions instead of two subtractions.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 

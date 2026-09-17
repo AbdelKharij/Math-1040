@@ -22,10 +22,10 @@ possible outcomes for the random variable.
 \choice[correct]{False}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 False. The expected value is a weighted average of the outcomes, and an average need
 not itself be an achievable outcome --- a fair die has $E(X)=3.5$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -37,13 +37,13 @@ equal to the probability of success per trial times the number of trials.
 \choice{False}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 True: for a binomial random variable, $E(X)=n\cdot p$.
 
 For instance, if you attempt $11$ three-point shots at a $40\%$ rate, you expect
 $11(0.4)=4.4$ makes --- which lines up with $4$ being the single most likely
 outcome, as computed on Homework 9.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -68,7 +68,7 @@ Use $E(X)=np$ backwards. Read off roughly where the distribution balances, and d
 by the number of trials --- here $n=7$, since $k$ runs from $0$ to $7$.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 The variable runs from $k=0$ to $k=7$, so $n=7$. The distribution is clearly
 skewed toward the high end, peaking at $k=4$ and $k=5$, so $p$ must be well above
 $0.5$ --- that rules out $0.18$, $0.34$, and $0.5$ immediately.
@@ -82,7 +82,7 @@ A mean of $6.09$ would put the peak at $k=6$, which does not match. So $p=0.63$.
 
 (Checking directly: $C(7,4)(0.63)^4(0.37)^3\approx 0.2793$, exactly the height shown
 for $k=4$.)
-\end{solution}
+\end{feedback}
 \end{problem}
 
 \begin{problem}
@@ -98,7 +98,7 @@ Give your answer to the nearest cent: $\$\answer[tolerance=0.005]{31.50}$
 Multiply each dollar value by its probability, then add them all up.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 \begin{align*}
 E(X) &= 5(0.3) + 10(0.1) + 20(0.2) + 50(0.3) + 100(0.1)\\
      &= 1.50 + 1.00 + 4.00 + 15.00 + 10.00\\
@@ -108,7 +108,7 @@ So $E(X)=\$31.50$.
 
 Notice that the probabilities $0.3+0.1+0.2+0.3+0.1$ total $1$, as they must, and that
 $\$31.50$ is not one of the five possible values --- another instance of Problem 1(a).
-\end{solution}
+\end{feedback}
 \end{problem}
 
 \begin{problem}
@@ -117,12 +117,12 @@ digit is a number $0$--$9$, with repeats allowed?
 
 The probability is $1$ in $\answer{10000}$.
 
-\begin{solution}
+\begin{feedback}
 By the multiplication principle there are
 \[ 10\cdot 10\cdot 10\cdot 10 = 10^4 = 10{,}000 \]
 possible passcodes, all equally likely, so the probability of guessing correctly is
 \[ \frac{1}{10{,}000} = 0.0001. \]
-\end{solution}
+\end{feedback}
 \end{problem}
 
 \begin{problem}
@@ -135,9 +135,9 @@ group of fifteen?
 
 $\answer{5005}$
 
-\begin{solution}
+\begin{feedback}
 \[ C(15,6)=\frac{15!}{6!\,9!}=5005. \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -147,10 +147,10 @@ distinct)?
 
 $\answer{3603600}$
 
-\begin{solution}
+\begin{feedback}
 \[ P(15,6)=15\cdot 14\cdot 13\cdot 12\cdot 11\cdot 10 = 3{,}603{,}600, \]
 which is $6!=720$ times the answer to part (a).
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -165,7 +165,7 @@ As a percentage rounded to one decimal place: $\answer[tolerance=0.05]{90.8}\%$
 six-hero teams can be formed using only the $11$ capeless heroes?
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Use the complement. A team with \emph{no} caped heroes must be drawn entirely from the
 $11$ capeless heroes, and there are $C(11,6)=462$ such teams. So
 \[
@@ -179,7 +179,7 @@ about $90.8\%$.
 
 Computing this directly would mean adding the cases of exactly one, two, three, and
 four caped heroes --- four calculations instead of one.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -188,7 +188,7 @@ that \emph{all four} caped heroes will be selected for the team?
 
 As a percentage rounded to one decimal place: $\answer[tolerance=0.05]{1.1}\%$
 
-\begin{solution}
+\begin{feedback}
 If all four caped heroes are on the team, the remaining $2$ spots are filled from the
 $11$ capeless heroes:
 \[
@@ -199,7 +199,7 @@ favorable teams. So
 P = \frac{55}{5005} = \frac{1}{91} \approx 0.01099,
 \]
 about $1.1\%$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -215,10 +215,10 @@ of $C(5,k)$ for each $k=0,1,2,3,4,5$.
 
 $\answer{1}$, $\answer{5}$, $\answer{10}$, $\answer{10}$, $\answer{5}$, $\answer{1}$
 
-\begin{solution}
+\begin{feedback}
 Row $4$ is $1, 4, 6, 4, 1$; adding adjacent pairs gives row $5$:
 \[ 1,\ 5,\ 10,\ 10,\ 5,\ 1. \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -240,7 +240,7 @@ Here success has probability $p=0.7$, so failure has probability $0.3$. Be caref
 which exponent goes with which.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 With $n=5$ and $p=0.7$:
 \[
 \begin{array}{ll}
@@ -255,7 +255,7 @@ P(X=5)=(0.7)^5=0.16807 & \to 16.81\%
 These sum to $100\%$. \checkmark
 
 Note the distribution peaks at $k=4$, consistent with $E(X)=np=5(0.7)=3.5$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -266,12 +266,12 @@ yolks?
 
 Rounded to two decimal places: $\answer[tolerance=0.005]{52.82}\%$
 
-\begin{solution}
+\begin{feedback}
 \[
 P(X\ge 4)=P(X=4)+P(X=5)=0.36015+0.16807=0.52822,
 \]
 about $52.82\%$ --- so you are slightly more likely than not to win the bet.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 

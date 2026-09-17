@@ -30,13 +30,13 @@ The complement $\olsi{A}$ is everything in the universal set $\mathcal{U}$ that 
 $1$.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 $\mathcal{U}=\set{1,2,3,4,5,7,9}$ and $A=\set{2,3,4,5}$. Removing the elements of
 $A$ from $\mathcal{U}$ leaves
 \[ \olsi{A} = \set{1,7,9}. \]
 Note that $1$ belongs to the universal set and is not in $A$, so it \emph{is} in
 $\olsi{A}$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -46,21 +46,21 @@ $\olsi{A}$.
 $C-\olsi{A}$ means the elements of $C$ with any element of $\olsi{A}$ thrown out.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 $C=\set{2,4,5,7,9}$ and $\olsi{A}=\set{1,7,9}$. Removing $7$ and $9$ from $C$ leaves
 \[ C-\olsi{A} = \set{2,4,5}. \]
 (Equivalently, $C-\olsi{A}=C\cap A$, the elements $C$ and $A$ have in common.)
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
 \textbf{(c)} $B\cap\left(C - \olsi{A}\right) = \set{\answer{5}}$
 
-\begin{solution}
+\begin{feedback}
 From part (b), $C-\olsi{A}=\set{2,4,5}$, and $B=\set{3,5,7,9}$. The only element the
 two have in common is $5$, so
 \[ B\cap\left(C-\olsi{A}\right)=\set{5}. \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -75,10 +75,10 @@ Consider the statement
 \begin{freeResponse}
 \end{freeResponse}
 
-\begin{solution}
+\begin{feedback}
 The left-hand side describes the things that are ``in $A$ and in $B$'', \emph{or}
 ``in $A$ and not in $B$''.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -89,7 +89,7 @@ The left-hand side describes the things that are ``in $A$ and in $B$'', \emph{or
 \choice{False --- there are sets $A$ and $B$ for which they differ}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 It is true. Every element of $A$ either is in $B$ or is not in $B$ --- there is no
 third option. So splitting $A$ into ``the part inside $B$'' and ``the part outside
 $B$'' accounts for all of $A$ and nothing more, and gluing those two pieces back
@@ -97,7 +97,7 @@ together with $\cup$ returns exactly $A$.
 
 Note also that both pieces are subsets of $A$, so the union cannot reach outside of
 $A$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -114,13 +114,13 @@ Decide flavor by flavor: for each of the $6$ flavors, Euclid either likes it or 
 not. That is $2$ choices per flavor, made independently.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 A set with $n$ elements has $2^n$ subsets, since each element is independently either
 in or out. Here $n=6$, so there are
 \[ 2^6 = 64 \]
 possible subsets of flavors --- including the empty set (Euclid likes nothing) and
 the whole set (Euclid likes everything).
-\end{solution}
+\end{feedback}
 \end{problem}
 
 \begin{problem}
@@ -135,13 +135,13 @@ Start with all $2^4$ subsets of the four musicians, then subtract the ones that 
 too small to be a song: the empty set, and the four solos.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 There are $2^4=16$ subsets of the four musicians in total. The subsets that do
 \emph{not} have at least two members are the empty subset ($1$ of them) and the
 one-musician subsets ($4$ of them), for $5$ subsets to discard. That leaves
 \[ 16 - 1 - 4 = 11 \]
 subsets of at least two musicians, so the concert has $11$ songs.
-\end{solution}
+\end{feedback}
 \end{problem}
 
 \end{document}

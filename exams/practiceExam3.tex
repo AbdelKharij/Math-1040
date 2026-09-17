@@ -23,14 +23,14 @@ the largest combination $C(n,k)$ is approximately half of $n$.
 \choice{False}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 True. Each row of Pascal's triangle rises to a peak in the middle and falls
 symmetrically, because $C(n,k)=C(n,n-k)$.
 
 For example, row $6$ is $1, 6, 15, 20, 15, 6, 1$, peaking at $k=3=\frac62$. When $n$
 is odd the maximum is shared by the two middle entries, as in row $11$, where
 $C(11,5)=C(11,6)=462$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -42,11 +42,11 @@ number.
 \choice{False}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 True. $C(n,k)$ counts the number of $k$-element subsets of an $n$-element set, and a
 count of subsets cannot be fractional. Despite the division in the formula, the
 factors of $k!\,(n-k)!$ always cancel completely.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -58,13 +58,13 @@ possible values the variable can take.
 \choice[correct]{False}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 False. The expected value is a weighted average, and an average need not be one of
 the values being averaged.
 
 The standard example is a single fair die: $E(X)=3.5$, which is not a face of the
 die. Likewise, a family might have an expected $2.4$ children.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -82,10 +82,10 @@ should be counted using combinations, and give the count.
 
 The count is $\answer{2002}$.
 
-\begin{solution}
+\begin{feedback}
 The five starters form an unordered group --- no distinct positions are assigned --- so
 \[ C(14,5)=\frac{14!}{5!\,9!}=2002. \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -104,11 +104,11 @@ The friends are distinguishable, so it matters not just \emph{which} seven cards
 used but \emph{who gets which}.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Because the cards are distinct and each friend gets a specific one, this is an
 assignment of $7$ cards from $20$ to $7$ labeled recipients --- a permutation:
 \[ P(20,7)=20\cdot 19\cdot 18\cdot 17\cdot 16\cdot 15\cdot 14 = 390{,}700{,}800. \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -122,13 +122,13 @@ the end of the week they select and order a $10$-sketch lineup.
 
 The count is $\answer{3075990524006400}$.
 
-\begin{solution}
+\begin{feedback}
 The lineup is ordered, so
 \[ P(40,10)=\frac{40!}{30!}=3{,}075{,}990{,}524{,}006{,}400. \]
 Compare this with the Exam 2 version of the same situation, where the sketches were
 only \emph{selected} and not ordered, giving $C(40,10)=847{,}660{,}528$. Ordering the
 lineup multiplies the count by $10!$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -144,11 +144,11 @@ Row $5$ is $1, 5, 10, 10, 5, 1$. Each entry of row $6$ is the sum of the two ent
 above it.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Starting from row $5$, which is $1, 5, 10, 10, 5, 1$, add adjacent pairs:
 \[ 1,\ 6,\ 15,\ 20,\ 15,\ 6,\ 1. \]
 For instance $C(6,2)=C(5,1)+C(5,2)=5+10=15$.
-\end{solution}
+\end{feedback}
 \end{problem}
 
 \begin{problem}
@@ -161,9 +161,9 @@ group of twelve?
 
 $\answer{792}$
 
-\begin{solution}
+\begin{feedback}
 \[ C(12,5)=\frac{12!}{5!\,7!}=792. \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -173,10 +173,10 @@ considered distinct)?
 
 $\answer{95040}$
 
-\begin{solution}
+\begin{feedback}
 \[ P(12,5)=12\cdot 11\cdot 10\cdot 9\cdot 8 = 95{,}040, \]
 which is $5!=120$ times the answer to part (a).
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -185,10 +185,10 @@ on the team?
 
 $\answer{330}$
 
-\begin{solution}
+\begin{feedback}
 The Joker fills one spot, leaving $4$ spots to fill from the other $11$ villains:
 \[ C(11,4)=\frac{11!}{4!\,7!}=330. \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -198,7 +198,7 @@ of the team?
 
 As a percentage rounded to one decimal place: $\answer[tolerance=0.05]{41.7}\%$
 
-\begin{solution}
+\begin{feedback}
 Divide part (c) by part (a):
 \[
 P(\text{Joker})=\frac{C(11,4)}{C(12,5)}=\frac{330}{792}=\frac{5}{12}\approx 0.4167,
@@ -207,7 +207,7 @@ about $41.7\%$.
 
 Sanity check: the team is $5$ of the $12$ villains, and by symmetry every villain is
 equally likely to be chosen, so the answer had to be $\frac{5}{12}$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -236,7 +236,7 @@ $P(X=5)=\answer[tolerance=0.0005]{1.024}\%$
 Use $n=5$ and $p=0.4$, so $1-p=0.6$. The six probabilities must total $100\%$.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 With $n=5$, $p=0.4$:
 \[
 \begin{array}{ll}
@@ -249,7 +249,7 @@ P(X=5)=(0.4)^5=0.01024 & \to 1.024\%
 \end{array}
 \]
 These sum to exactly $100\%$. \checkmark
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -258,12 +258,12 @@ questions correctly?
 
 Rounded to three decimal places: $\answer[tolerance=0.0005]{8.704}\%$
 
-\begin{solution}
+\begin{feedback}
 \[
 P(X\ge 4)=P(X=4)+P(X=5)=0.07680+0.01024=0.08704,
 \]
 that is, $8.704\%$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -287,7 +287,7 @@ Multiply each prize by the probability of winning it, then add. Note that you ar
 taking the expected value of the \emph{prize}, not of the number correct.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 \begin{align*}
 E(\text{prize}) &= 0(0.07776)+50(0.25920)+100(0.34560)\\
 &\qquad +200(0.23040)+500(0.07680)+1000(0.01024)\\
@@ -298,7 +298,7 @@ So the expected prize is $\$142.24$.
 
 Note this is not a prize you can actually win --- no row of the table pays
 $\$142.24$. That is part (c) of Problem 1 in action.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 

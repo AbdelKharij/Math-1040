@@ -28,7 +28,7 @@ $P(V)=60\%$, or $0.6$.
 \begin{freeResponse}
 \end{freeResponse}
 
-\begin{solution}
+\begin{feedback}
 The overall voting rate, and its complement:
 \[ P(V)=0.60, \qquad P\left(\olsi{V}\right)=0.40. \]
 
@@ -45,7 +45,7 @@ P\left(I\mid\olsi{V}\right)=0.30,\quad
 P\left(O\mid\olsi{V}\right)=0.25.
 \]
 Notice that each group of four conditional probabilities adds to $1$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -62,7 +62,7 @@ $P(\text{second}\mid\text{first})$. Which way around were the percentages in the
 problem reported?
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Tree \#2. The problem gives $P(V)$ first, and then reports party membership
 \emph{within} each voting group --- $P(R\mid V)$, $P(R\mid\olsi{V})$, and so on.
 That is exactly the structure of a tree that splits on voting status first and party
@@ -71,7 +71,7 @@ second.
 Tree \#1 would require the probabilities $P(V\mid R)$, $P(V\mid D)$, and so forth on
 its second-generation branches, and those are not given --- in fact finding one of
 them is the point of part (c).
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -90,7 +90,7 @@ The denominator is just the total probability of being Independent, found by add
 up the two paths through the tree that end in $I$.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 There are two paths through the tree that end at ``Independent'':
 \[
 P(I\cap V)=P(I\mid V)P(V)=(0.25)(0.60)=0.15,
@@ -105,7 +105,7 @@ P(V\mid I)=\frac{P(I\cap V)}{P(I)}=\frac{0.15}{0.27}=\frac{15}{27}=\frac59\appro
 So about $55.6\%$ of registered Independents voted --- lower than the $60\%$ overall
 turnout, which makes sense because Independents were over-represented among
 non-voters.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -137,7 +137,7 @@ $P\left(+\mid\olsi{B}\right)=0.01$. You want $P(B\mid +)$, which reverses the
 conditioning --- so Bayes' Theorem applies.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Write $B$ for having the disorder. We know
 \[
 P(B)=0.02,\quad P(+\mid B)=0.90,\quad P\left(+\mid\olsi{B}\right)=1-0.99=0.01.
@@ -158,7 +158,7 @@ means only a $65\%$ chance of actually having the disorder. The disorder is rare
 the $1\%$ of the healthy $98\%$ who test positive falsely --- nearly $1$ person in
 $100$ --- is comparable in size to the $1.8$ people in $100$ who are correctly
 flagged.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -168,7 +168,7 @@ given they receive a negative test result?
 Give your answer as a percentage rounded to two decimal places:
 $\answer[tolerance=0.005]{99.79}\%$
 
-\begin{solution}
+\begin{feedback}
 The two paths that end in a negative result are
 \[
 P\left(-\cap\olsi{B}\right)=(0.99)(0.98)=0.9702, \qquad
@@ -183,7 +183,7 @@ that is, about $99.79\%$ --- which rounds to $100\%$ at the nearest whole percen
 Compare this with part (a): the same test is extremely trustworthy when it comes
 back negative and only moderately trustworthy when it comes back positive. That
 asymmetry comes entirely from the disorder being rare.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 

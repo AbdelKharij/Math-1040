@@ -22,10 +22,10 @@ Event $F$: you've dressed in a sweater.
 \choice[correct]{Not independent}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 Not independent. Knowing that it is warm today changes how likely you are to have
 put on a sweater, so $P(F\mid E)\neq P(F)$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -38,11 +38,11 @@ Event $F$: you draw a red card on the second draw.
 \choice{Not independent}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 Independent. The first card is returned and the deck reshuffled, so the second draw
 faces the same $52$-card deck no matter what happened first:
 $P(F\mid E)=\frac{26}{52}=\frac12=P(F)$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -55,11 +55,11 @@ Event $F$: you draw a red card on the second draw.
 \choice[correct]{Not independent}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 Not independent. Removing a red card leaves $25$ red cards among $51$, so
 \[ P(F\mid E)=\frac{25}{51}\approx 0.490, \]
 whereas $P(F)=\frac12$. Since $P(F\mid E)\neq P(F)$, the events are dependent.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -78,11 +78,11 @@ $P(F\mid E) = \answer[tolerance=0.001]{0.25}$
 $P(F\mid E)=\dfrac{P(E\cap F)}{P(E)}$.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 \[
 P(F\mid E)=\frac{P(E\cap F)}{P(E)}=\frac{0.15}{0.6}=0.25.
 \]
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -93,14 +93,14 @@ P(F\mid E)=\frac{P(E\cap F)}{P(E)}=\frac{0.15}{0.6}=0.25.
 \choice[correct]{No}
 \end{multipleChoice}
 
-\begin{solution}
+\begin{feedback}
 No. Independence would require $P(F\mid E)=P(F)$, but $P(F\mid E)=0.25$ while
 $P(F)=0.4$.
 
 Equivalently, independence would require $P(E\cap F)=P(E)\cdot P(F)$, but
 $0.6\times 0.4 = 0.24 \neq 0.15$. Knowing $E$ happened makes $F$ less likely, so the
 two events are dependent.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
@@ -126,13 +126,13 @@ $P(W_1)=\answer{5/9}$
 There are $9$ truffles at the first draw.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Out of $9$ truffles, $3$ are milk, $1$ is dark, and $5$ are white:
 \[
 P(M_1)=\frac39=\frac13, \qquad P(D_1)=\frac19, \qquad P(W_1)=\frac59.
 \]
 These add to $1$, as the first-generation branches of a tree always must.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -161,7 +161,7 @@ In each row, subtract one from the count of the flavor you already drew, and use
 as the denominator. There was only one dark truffle to begin with.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 After your draw, $8$ truffles remain, with one fewer of whichever flavor you took.
 \begin{itemize}
 \item If you took milk, the remaining pool is $2$ M, $1$ D, $5$ W:
@@ -172,7 +172,7 @@ After your draw, $8$ truffles remain, with one fewer of whichever flavor you too
 \item If you took white, the pool is $3$ M, $1$ D, $4$ W:
       $\frac38$, $\frac18$, $\frac48=\frac12$.
 \end{itemize}
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -197,7 +197,7 @@ $P(X_1\cap Y_2)=P(X_1)\cdot P(Y_2\mid X_1)$ --- multiply the two numbers along t
 path from the start of the tree to that outcome.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 Multiplying along each path (all nine have denominator $72$ before reducing):
 \[
 \begin{array}{lll}
@@ -214,7 +214,7 @@ P(W_1\cap W_2)=\frac59\cdot\frac48=\frac{20}{72}=\frac{5}{18}
 \]
 As a check, the nine numerators over $72$ add up to
 $6+3+15+3+0+5+15+5+20=72$, so the outcomes total probability $1$.
-\end{solution}
+\end{feedback}
 \end{prompt}
 
 \begin{prompt}
@@ -228,13 +228,13 @@ Three of the nine outcomes have both truffles the same flavor. Add those three
 probabilities.
 \end{hint}
 
-\begin{solution}
+\begin{feedback}
 The ``same flavor'' outcomes are $M_1\cap M_2$, $D_1\cap D_2$, and $W_1\cap W_2$:
 \[
 \frac{6}{72} + 0 + \frac{20}{72} = \frac{26}{72} = \frac{13}{36} \approx 0.361.
 \]
 Note that $D_1\cap D_2$ contributes nothing, since there is only one dark truffle.
-\end{solution}
+\end{feedback}
 \end{prompt}
 \end{problem}
 
