@@ -1,0 +1,167 @@
+\documentclass[12pt]{ximera}
+\title{Homework 9: Binomial Probability and the Subtraction Game}
+\begin{document}
+\begin{abstract}
+Section 8.4 and the subtraction game: binomial probabilities for guessing on a
+multiple-choice exam and for Steph Curry's three-point shooting, and a subtraction game
+where the second player wins.
+\end{abstract}
+\maketitle
+
+\section*{Section 8.4 and the Subtraction Game}
+
+Throughout, the binomial probability formula is
+\[
+P(X=k) = C(n,k)\, p^k\, (1-p)^{\,n-k},
+\]
+where $n$ is the number of independent trials, $p$ is the probability of success on
+any one trial, and $k$ is the number of successes.
+
+\begin{problem}
+A university's calculus exams consist of six multiple-choice questions, each with
+five possible answers, followed by a few long-form questions.
+
+\begin{prompt}
+\textbf{(a)} If a student guesses randomly on the multiple-choice, what is their
+probability of guessing correctly on each individual question?
+
+As a fraction: $\answer{1/5}$
+
+\begin{feedback}
+One of the five answers is correct and the guess is random, so the probability is
+$\frac15=0.2$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} What is the probability of guessing correctly on \emph{exactly four} of the
+six multiple-choice questions? Give a percentage rounded to two decimal places.
+
+$\answer[tolerance=0.005]{1.54}\%$
+
+\begin{feedback}
+With $n=6$, $p=0.2$, and $k=4$,
+\[ P(X=4)=C(6,4)(0.2)^4(0.8)^2=15(0.0016)(0.64)=0.01536, \]
+about $1.54\%$, or $2\%$ to the nearest whole percent.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} What is the probability of guessing correctly on \emph{at least one} of the
+six multiple-choice questions? Give a percentage rounded to two decimal places.
+
+$\answer[tolerance=0.005]{73.79}\%$
+
+\begin{hint}
+``At least one'' is the complement of ``none''.
+\end{hint}
+
+\begin{feedback}
+The only way to miss the event is to get all six wrong, which has probability
+$(0.8)^6=0.262144$. So
+\[ P(X\ge 1)=1-0.262144=0.737856, \]
+about $73.79\%$, or $74\%$ to the nearest whole percent.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Stephen Curry plays basketball for the Golden State Warriors and is well-known for
+his exceptional shooting. Based on his 2024--25 regular season averages, he attempted
+around eleven 3-point shots per game, and made about $40\%$ of the shots he took.
+
+\begin{prompt}
+\textbf{(a)} Complete Pascal's Triangle out to the eleventh row to solve the values
+of $C(11,k)$ for every value of $k=0,1,2,\ldots,11$. Enter that row in order.
+
+$\answer{1}$, $\answer{11}$, $\answer{55}$, $\answer{165}$, $\answer{330}$,
+$\answer{462}$, $\answer{462}$, $\answer{330}$, $\answer{165}$, $\answer{55}$,
+$\answer{11}$, $\answer{1}$
+
+\begin{hint}
+Each entry is the sum of the two entries above it, and every row starts and ends with
+$1$. Row $10$ is $1, 10, 45, 120, 210, 252, 210, 120, 45, 10, 1$.
+\end{hint}
+
+\begin{feedback}
+Row $11$ of Pascal's Triangle is
+\[
+1,\ 11,\ 55,\ 165,\ 330,\ 462,\ 462,\ 330,\ 165,\ 55,\ 11,\ 1.
+\]
+For example $C(11,4)=C(10,3)+C(10,4)=120+210=330$. Notice the row is symmetric,
+since $C(11,k)=C(11,11-k)$.
+\end{feedback}
+\end{prompt}
+
+
+\begin{prompt}
+\textbf{(b)} What is the probability that he makes \emph{eight or more} out of eleven
+attempted 3-point shots in a game?
+
+As a percentage rounded to two decimal places: $\answer[tolerance=0.005]{2.93}\%$
+
+\begin{hint}
+``Eight or more'' means $k=8,9,10,11$. Use $C(11,8)=165$, $C(11,9)=55$,
+$C(11,10)=11$, and $C(11,11)=1$ from part (a).
+\end{hint}
+
+\begin{feedback}
+With $n=11$ and $p=0.4$:
+\[
+P(X=8)=165\,(0.4)^8(0.6)^3 \approx 0.023357,
+\]
+\[
+P(X=9)=55\,(0.4)^9(0.6)^2 \approx 0.005190,
+\]
+\[
+P(X=10)=11\,(0.4)^{10}(0.6)^1 \approx 0.000692,
+\]
+\[
+P(X=11)=1\,(0.4)^{11} \approx 0.000042.
+\]
+Adding these gives
+\[
+P(X\ge 8)\approx 0.029281,
+\]
+about $2.93\%$, which rounds to $3\%$ at the nearest whole percent. A game like that
+happens roughly two or three times per season.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Alice and Bob are playing a version of the Subtraction Game where they start with a pile
+of $54$ stones and on each turn they may take $1$, $2$, $3$, $4$, or $5$ stones. The
+objective, as always, is to claim the last stone.
+
+\begin{prompt}
+\textbf{(a)} Describe the winning strategy in this version of the game.
+
+\begin{freeResponse}
+\end{freeResponse}
+
+\begin{feedback}
+Always leave your opponent a multiple of $6$. From a multiple of $6$, whatever your
+opponent takes ($1$ to $5$), you take the rest of that group of $6$: if they take $k$,
+you take $6-k$. The pile then drops by exactly $6$ each round, until your opponent faces
+$0$ --- meaning you took the last stone.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} If both players play optimally and Alice goes first, who will win?
+
+\begin{multipleChoice}
+\choice{Alice}
+\choice[correct]{Bob}
+\end{multipleChoice}
+
+\begin{feedback}
+Bob. The starting pile, $54=6\cdot 9$, is already a multiple of $6$, so Alice faces a
+losing position. Whatever she takes, Bob answers with $6-k$ and keeps handing her a
+multiple of $6$.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\end{document}

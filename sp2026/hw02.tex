@@ -1,0 +1,141 @@
+\documentclass[12pt]{ximera}
+\title{Homework 2: Sets, Subsets, and Set Operations}
+\begin{document}
+\begin{abstract}
+Section 7.1: listing the elements of sets built from complements, differences, and
+intersections; translating set identities into English; and counting the subsets of
+a finite set.
+\end{abstract}
+\maketitle
+
+\section*{Section 7.1: Sets, Subsets, and Set Operations}
+
+\begin{problem}
+Consider three sets
+\[
+A=\set{2,3,4,5}, \quad B=\set{3,5,7,9}, \quad C=\set{2,4,5,7,9}
+\]
+inside the universal set $\mathcal{U}=\set{1,2,3,4,5,6,7,8,9}$. Write out each of the
+following sets, entering the elements in increasing order.
+
+\begin{prompt}
+\textbf{(a)} $\olsi{B} = \set{\answer{1},\ \answer{2},\ \answer{4},\ \answer{6},\ \answer{8}}$
+
+\begin{feedback}
+Removing $B=\set{3,5,7,9}$ from $\mathcal{U}=\set{1,\ldots,9}$ leaves
+$\olsi{B}=\set{1,2,4,6,8}$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} $C - A = \set{\answer{7},\ \answer{9}}$
+
+\begin{feedback}
+$C=\set{2,4,5,7,9}$; removing the elements it shares with $A=\set{2,3,4,5}$ leaves
+$C-A=\set{7,9}$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} $\olsi{B}\cap\left(C - A\right)$ has $\answer{0}$ elements.
+
+\begin{multipleChoice}
+\choice[correct]{It is the empty set $\varnothing$}
+\choice{$\set{7}$}
+\choice{$\set{7,9}$}
+\choice{$\set{1,2,4,6,8}$}
+\end{multipleChoice}
+
+\begin{hint}
+Compare the two sets you found in parts (a) and (b) element by element.
+\end{hint}
+
+\begin{feedback}
+$\olsi{B}=\set{1,2,4,6,8}$ and $C-A=\set{7,9}$ have nothing in common, so their
+intersection is the empty set: $\olsi{B}\cap(C-A)=\varnothing$. That makes sense:
+$7$ and $9$ are both in $B$, so neither can be in $\olsi{B}$.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Consider the statement
+\[ \left(A\cap B\right)\cup\left(A\cap\olsi{B}\right) = A. \]
+
+\begin{prompt}
+\textbf{(a)} Translate the left-hand side into English, using ``and'', ``or'', and
+``not''.
+
+\begin{freeResponse}
+\end{freeResponse}
+
+\begin{feedback}
+The left-hand side describes the things that are ``in $A$ and in $B$'', \emph{or}
+``in $A$ and not in $B$''.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Is the statement true or false?
+
+\begin{multipleChoice}
+\choice[correct]{True --- the two sides are equal for any sets $A$ and $B$}
+\choice{False --- there are sets $A$ and $B$ for which they differ}
+\end{multipleChoice}
+
+\begin{feedback}
+It is true. Every element of $A$ either is in $B$ or is not in $B$ --- there is no
+third option. So splitting $A$ into ``the part inside $B$'' and ``the part outside
+$B$'' accounts for all of $A$ and nothing more, and gluing those two pieces back
+together with $\cup$ returns exactly $A$.
+
+Note also that both pieces are subsets of $A$, so the union cannot reach outside of
+$A$.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Suppose a particular brand of cat food has $6$ different flavors available at the
+store. Euclid the cat might like all $6$ flavors, or none of them, or any other
+subset of them. How many possibilities are there for the subset of flavors Euclid
+likes among the $6$ available flavors?
+
+$\answer{64}$ possible subsets.
+
+\begin{hint}
+Decide flavor by flavor: for each of the $6$ flavors, Euclid either likes it or does
+not. That is $2$ choices per flavor, made independently.
+\end{hint}
+
+\begin{feedback}
+A set with $n$ elements has $2^n$ subsets, since each element is independently either
+in or out. Here $n=6$, so there are
+\[ 2^6 = 64 \]
+possible subsets of flavors --- including the empty set (Euclid likes nothing) and
+the whole set (Euclid likes everything).
+\end{feedback}
+\end{problem}
+
+\begin{problem}
+A concert features a cellist, a flutist, a harpist, and a vocalist. Each song
+features a different subset of \emph{at least two} of the featured musicians. How
+many songs are in the concert if every such subset is featured once?
+
+$\answer{11}$ songs.
+
+\begin{hint}
+Start with all $2^4$ subsets of the four musicians, then subtract the ones that are
+too small to be a song: the empty set, and the four solos.
+\end{hint}
+
+\begin{feedback}
+There are $2^4=16$ subsets of the four musicians in total. The subsets that do
+\emph{not} have at least two members are the empty subset ($1$ of them) and the
+one-musician subsets ($4$ of them), for $5$ subsets to discard. That leaves
+\[ 16 - 1 - 4 = 11 \]
+subsets of at least two musicians, so the concert has $11$ songs.
+\end{feedback}
+\end{problem}
+
+\end{document}

@@ -1,0 +1,233 @@
+\documentclass[12pt]{ximera}
+\title{Homework 3: Venn Diagrams and Inclusion-Exclusion}
+\begin{document}
+\begin{abstract}
+Section 7.2: shading regions of a three-set Venn diagram, and using the Principle of
+Inclusion-Exclusion to recover counts that were not given directly.
+\end{abstract}
+\maketitle
+
+\section*{Section 7.2: Venn Diagrams and PIE}
+
+\begin{problem}
+For each of the following sets: write the set notation in words (``intersection'',
+``union'', ``complement''), translate it into English using ``and'', ``or'', and
+``not'', and shade a three-set Venn diagram to show it. Write your words below and
+sketch the diagram on paper, then check yourself against the solution.
+
+\begin{prompt}
+\textbf{(a)} $\olsi{A}\cap B\cap C$
+
+\begin{freeResponse}
+\end{freeResponse}
+
+\begin{feedback}
+Shade only the region that is inside \emph{both} $B$ and $C$ but outside $A$ ---
+that is, the ``$B$ and $C$ overlap'' with the very center petal removed.
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  \begin{scope}
+    \clip (0.9,0.5) circle (1.5);
+    \clip (0,-0.9) circle (1.5);
+    \fill[blue!30,even odd rule] (-3.1,-3.1) rectangle (3.1,2.6) (-0.9,0.5) circle (1.5);
+  \end{scope}
+  \draw[thick] (-0.9,0.5) circle (1.5) node at (-2.2,1.7) {$A$};
+  \draw[thick] (0.9,0.5) circle (1.5) node at (2.2,1.7) {$B$};
+  \draw[thick] (0,-0.9) circle (1.5) node at (0,-2.75) {$C$};
+  \draw[thick] (-3.1,-3.1) rectangle (3.1,2.6);
+\end{tikzpicture}
+\end{center}
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} $\left(A\cap\olsi{B}\right)\cup\olsi{C}$
+
+\begin{freeResponse}
+\end{freeResponse}
+
+\begin{feedback}
+In words: ``the intersection of $A$ with the complement of $B$, union the complement of
+$C$'' --- that is, things that are in $A$ but not $B$, \emph{or} are not in $C$.
+
+Shade everything outside $C$, and also the part of $A$ outside $B$ (including the piece
+of it that lies inside $C$). The only unshaded parts inside $C$ are the ones in $B$ or
+outside $A$.
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  \fill[blue!30,even odd rule] (-3.1,-3.1) rectangle (3.1,2.6) (0,-0.9) circle (1.5);
+  \begin{scope}
+    \clip (-0.9,0.5) circle (1.5);
+    \fill[blue!30,even odd rule] (-3.1,-3.1) rectangle (3.1,2.6) (0.9,0.5) circle (1.5);
+  \end{scope}
+  \draw[thick] (-0.9,0.5) circle (1.5) node at (-2.2,1.7) {$A$};
+  \draw[thick] (0.9,0.5) circle (1.5) node at (2.2,1.7) {$B$};
+  \draw[thick] (0,-0.9) circle (1.5) node at (0,-2.75) {$C$};
+  \draw[thick] (-3.1,-3.1) rectangle (3.1,2.6);
+\end{tikzpicture}
+\end{center}
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} $A\cap\left(B\cup\olsi{C}\right)$
+
+\begin{freeResponse}
+\end{freeResponse}
+
+\begin{feedback}
+Everything shaded must be inside $A$. Within $A$, keep the part that is in $B$
+\emph{or} outside $C$. Equivalently, this set is
+$\left(A\cap B\right)\cup\left(A\cap\olsi{C}\right)$: the only part of $A$ left
+unshaded is the piece that is inside $C$ but outside $B$.
+\begin{center}
+\begin{tikzpicture}[scale=0.8]
+  \begin{scope}
+    \clip (-0.9,0.5) circle (1.5);
+    \clip (0.9,0.5) circle (1.5);
+    \fill[blue!30] (-3.1,-3.1) rectangle (3.1,2.6);
+  \end{scope}
+  \begin{scope}
+    \clip (-0.9,0.5) circle (1.5);
+    \fill[blue!30,even odd rule] (-3.1,-3.1) rectangle (3.1,2.6) (0,-0.9) circle (1.5);
+  \end{scope}
+  \draw[thick] (-0.9,0.5) circle (1.5) node at (-2.2,1.7) {$A$};
+  \draw[thick] (0.9,0.5) circle (1.5) node at (2.2,1.7) {$B$};
+  \draw[thick] (0,-0.9) circle (1.5) node at (0,-2.75) {$C$};
+  \draw[thick] (-3.1,-3.1) rectangle (3.1,2.6);
+\end{tikzpicture}
+\end{center}
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Use the Principle of Inclusion-Exclusion to solve the following.
+
+If $n(A)=12$, $n(B)=27$, and $n(A\cup B)=30$, what is $n(A\cap B)$?
+
+$n(A\cap B) = \answer{9}$
+
+\begin{hint}
+The Principle of Inclusion-Exclusion for two sets says
+$n(A\cup B)=n(A)+n(B)-n(A\cap B)$. Everything but $n(A\cap B)$ is known.
+\end{hint}
+
+\begin{feedback}
+By inclusion-exclusion,
+\[ n(A\cup B) = n(A)+n(B)-n(A\cap B), \]
+so
+\[ 30 = 12+27-n(A\cap B) = 39 - n(A\cap B), \]
+which gives $n(A\cap B)=39-30=9$.
+
+The reason for the subtraction: adding $n(A)$ and $n(B)$ counts everything in the
+overlap twice, so you remove one of those copies.
+\end{feedback}
+\end{problem}
+
+\begin{problem}
+Sketch a Venn diagram and use it to solve the following.
+
+Suppose $140$ people are interviewed about their cooking habits, with the following
+results:
+\begin{itemize}
+    \item $63$ use electric ranges;
+    \item $58$ use gas ranges;
+    \item $19$ use microwave ovens and electric ranges;
+    \item $17$ use microwave ovens and gas ranges;
+    \item $4$ use both electric and gas ranges;
+    \item $1$ uses all three;
+    \item $2$ use none of the three.
+\end{itemize}
+
+\begin{prompt}
+\textbf{(a)} Which of the pieces of information above correspond to just \emph{one}
+region of the Venn diagram?
+
+\begin{selectAll}
+\choice{$63$ use electric ranges}
+\choice{$58$ use gas ranges}
+\choice{$19$ use microwave ovens and electric ranges}
+\choice{$17$ use microwave ovens and gas ranges}
+\choice{$4$ use both electric and gas ranges}
+\choice[correct]{$1$ uses all three}
+\choice[correct]{$2$ use none of the three}
+\end{selectAll}
+
+\begin{feedback}
+Only two of them name a single region.
+\begin{itemize}
+\item ``$1$ uses all three'' is the center region $M\cap E\cap G$.
+\item ``$2$ use none of the three'' is the region outside all three circles.
+\end{itemize}
+Every other statement spans several regions. For instance, ``$63$ use electric
+ranges'' covers all four regions inside the $E$ circle, and ``$19$ use microwave
+ovens and electric ranges'' covers two regions: those who use exactly those two, and
+those who use all three.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Sketch a Venn diagram with circles $M$ (microwave), $E$ (electric), and $G$
+(gas), and solve for every region.
+
+All three: $\answer{1}$ \qquad
+$M$ and $E$ only: $\answer{18}$ \qquad
+$M$ and $G$ only: $\answer{16}$ \qquad
+$E$ and $G$ only: $\answer{3}$
+
+\smallskip
+$E$ only: $\answer{41}$ \qquad
+$G$ only: $\answer{38}$ \qquad
+$M$ only: $\answer{21}$ \qquad
+None: $\answer{2}$
+
+\begin{hint}
+Start from the center and the outside, which are given. Each two-appliance count
+includes the $1$ person who uses all three. The ``$M$ only'' region is the one you need
+the total of $140$ for.
+\end{hint}
+
+\begin{feedback}
+Center $1$; $M$ and $E$ only $19-1=18$; $M$ and $G$ only $17-1=16$; $E$ and $G$ only
+$4-1=3$. Then $E$ only $=63-(18+3+1)=41$ and $G$ only $=58-(16+3+1)=38$. Everything so
+far, with the $2$ who use none, totals $1+18+16+3+41+38+2=119$, so $M$ only $=140-119=21$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} How many people surveyed use only microwave ovens in their cooking?
+
+$\answer{21}$ people.
+
+\begin{hint}
+First find $n(M)$, the total number of microwave users, using inclusion-exclusion on
+all three sets --- you know that $140-2=138$ people use at least one of the three.
+Then peel off the parts of $M$ that overlap $E$ or $G$.
+\end{hint}
+
+\begin{feedback}
+Since $2$ people use none of the three, the number using at least one is
+$n(M\cup E\cup G)=140-2=138$.
+
+Inclusion-exclusion for three sets gives
+\[
+n(M\cup E\cup G)=n(M)+n(E)+n(G)-n(M\cap E)-n(M\cap G)-n(E\cap G)+n(M\cap E\cap G),
+\]
+so
+\[
+138 = n(M) + 63 + 58 - 19 - 17 - 4 + 1 = n(M) + 82,
+\]
+giving $n(M)=56$.
+
+Now split $M$ into its four regions. Of the $19$ who use a microwave and an electric
+range, $1$ uses all three, so $18$ use exactly the microwave and electric range.
+Likewise $17-1=16$ use exactly the microwave and gas range, and $1$ uses all three.
+So the ``microwave only'' region contains
+\[ 56 - 18 - 16 - 1 = 21 \]
+people.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\end{document}

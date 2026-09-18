@@ -1,0 +1,239 @@
+\documentclass[12pt]{ximera}
+\title{Homework 5: Conditional Probability and Independence}
+\begin{document}
+\begin{abstract}
+Section 7.5: conditional probability from the definition, testing independence with
+real injury data, and a full tree diagram for two draws without replacement.
+\end{abstract}
+\maketitle
+
+\section*{Section 7.5: Conditional Probability and Independence}
+
+\begin{problem}
+Use the formulas for conditional probability to solve the following. Give exact
+answers.
+
+Suppose $P(E)=0.6$, $P(F)=0.4$, and $P(E\cap F)=0.15$.
+
+\begin{prompt}
+\textbf{(a)} What is $P(F\mid E)$?
+
+$P(F\mid E) = \answer[tolerance=0.001]{0.25}$
+
+\begin{hint}
+$P(F\mid E)=\dfrac{P(E\cap F)}{P(E)}$.
+\end{hint}
+
+\begin{feedback}
+\[
+P(F\mid E)=\frac{P(E\cap F)}{P(E)}=\frac{0.15}{0.6}=0.25.
+\]
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Are the events $E$ and $F$ independent?
+
+\begin{multipleChoice}
+\choice{Yes}
+\choice[correct]{No}
+\end{multipleChoice}
+
+\begin{feedback}
+No. Independence would require $P(F\mid E)=P(F)$, but $P(F\mid E)=0.25$ while
+$P(F)=0.4$.
+
+Equivalently, independence would require $P(E\cap F)=P(E)\cdot P(F)$, but
+$0.6\times 0.4 = 0.24 \neq 0.15$. Knowing $E$ happened makes $F$ less likely, so the
+two events are dependent.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+The following table lists injuries for ice hockey players wearing either a half shield
+or a full shield, as reported in a university athletics study.
+
+\begin{center}
+\begin{tabular}{r|cc|c}
+ & Half Shield ($H$) & Full Shield ($F$) & Totals\\\hline
+Head and Face Injuries ($A$) & 95 & 34 & 129\\
+Concussions ($B$) & 41 & 38 & 79\\
+Neck Injuries ($C$) & 9 & 7 & 16\\
+Other Injuries ($D$) & 202 & 150 & 352\\\hline
+Totals & 347 & 229 & 576
+\end{tabular}
+\end{center}
+
+\begin{prompt}
+\textbf{(a)} What is the probability that a player who sustained a head or face injury
+was wearing a half shield? Write it in conditional notation, then solve.
+
+The probability to find is
+\begin{multipleChoice}
+\choice[correct]{$P(H\mid A)$}
+\choice{$P(A\mid H)$}
+\choice{$P(A\cap H)$}
+\end{multipleChoice}
+
+As a fraction: $\answer{95/129}$
+
+\begin{feedback}
+We are told the injury was a head or face injury, so we restrict to row $A$: this is
+$P(H\mid A)$. Of the $129$ head and face injuries, $95$ involved a half shield:
+\[ P(H\mid A)=\frac{95}{129}\approx 0.736. \]
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Was the risk of head and face injury independent of wearing a half shield
+in these cases?
+
+\begin{multipleChoice}
+\choice{Yes, independent}
+\choice[correct]{No, not independent}
+\end{multipleChoice}
+
+\begin{feedback}
+Compare $P(H\mid A)$ with $P(H)$. Overall, $P(H)=\frac{347}{576}\approx 0.602$, but among
+head and face injuries $P(H\mid A)\approx 0.736$. Since these differ, the events are not
+independent: half shields are over-represented among head and face injuries.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Suppose you have a container of assorted chocolate truffles with $3$ milk chocolates
+(M), only one dark chocolate (D), and $5$ white chocolates (W) remaining --- nine
+truffles in all.
+
+You draw one for yourself and then one to share with a friend, \emph{without}
+replacing the first. Below, the truffle drawn for you is labeled with a $1$, and
+your friend's with a $2$.
+
+Enter every answer in this problem as a fraction.
+
+\begin{prompt}
+\textbf{(a, first draw)} The probabilities on the first three branches of the tree:
+
+$P(M_1)=\answer{1/3}$ \qquad
+$P(D_1)=\answer{1/9}$ \qquad
+$P(W_1)=\answer{5/9}$
+
+\begin{hint}
+There are $9$ truffles at the first draw.
+\end{hint}
+
+\begin{feedback}
+Out of $9$ truffles, $3$ are milk, $1$ is dark, and $5$ are white:
+\[
+P(M_1)=\frac39=\frac13, \qquad P(D_1)=\frac19, \qquad P(W_1)=\frac59.
+\]
+These add to $1$, as the first-generation branches of a tree always must.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(a, second draw)} Now the conditional probabilities on the second set of
+branches. Remember that one truffle has already been removed, so only $8$ remain.
+
+Given your truffle was milk: \\
+$P(M_2\mid M_1)=\answer{1/4}$ \quad
+$P(D_2\mid M_1)=\answer{1/8}$ \quad
+$P(W_2\mid M_1)=\answer{5/8}$
+
+\smallskip
+Given your truffle was dark: \\
+$P(M_2\mid D_1)=\answer{3/8}$ \quad
+$P(D_2\mid D_1)=\answer{0}$ \quad
+$P(W_2\mid D_1)=\answer{5/8}$
+
+\smallskip
+Given your truffle was white: \\
+$P(M_2\mid W_1)=\answer{3/8}$ \quad
+$P(D_2\mid W_1)=\answer{1/8}$ \quad
+$P(W_2\mid W_1)=\answer{1/2}$
+
+\begin{hint}
+In each row, subtract one from the count of the flavor you already drew, and use $8$
+as the denominator. There was only one dark truffle to begin with.
+\end{hint}
+
+\begin{feedback}
+After your draw, $8$ truffles remain, with one fewer of whichever flavor you took.
+\begin{itemize}
+\item If you took milk, the remaining pool is $2$ M, $1$ D, $5$ W:
+      $\frac28=\frac14$, $\frac18$, $\frac58$.
+\item If you took the dark one, the pool is $3$ M, $0$ D, $5$ W:
+      $\frac38$, $0$, $\frac58$. The dark branch is impossible because there was
+      only ever one dark truffle.
+\item If you took white, the pool is $3$ M, $1$ D, $4$ W:
+      $\frac38$, $\frac18$, $\frac48=\frac12$.
+\end{itemize}
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Multiply along each path to get the probability of each outcome.
+
+$P(M_1\cap M_2)=\answer{1/12}$ \quad
+$P(M_1\cap D_2)=\answer{1/24}$ \quad
+$P(M_1\cap W_2)=\answer{5/24}$
+
+\smallskip
+$P(D_1\cap M_2)=\answer{1/24}$ \quad
+$P(D_1\cap D_2)=\answer{0}$ \quad
+$P(D_1\cap W_2)=\answer{5/72}$
+
+\smallskip
+$P(W_1\cap M_2)=\answer{5/24}$ \quad
+$P(W_1\cap D_2)=\answer{5/72}$ \quad
+$P(W_1\cap W_2)=\answer{5/18}$
+
+\begin{hint}
+$P(X_1\cap Y_2)=P(X_1)\cdot P(Y_2\mid X_1)$ --- multiply the two numbers along the
+path from the start of the tree to that outcome.
+\end{hint}
+
+\begin{feedback}
+Multiplying along each path (all nine have denominator $72$ before reducing):
+\[
+\begin{array}{lll}
+P(M_1\cap M_2)=\frac39\cdot\frac28=\frac{6}{72}=\frac{1}{12} &
+P(M_1\cap D_2)=\frac39\cdot\frac18=\frac{3}{72}=\frac{1}{24} &
+P(M_1\cap W_2)=\frac39\cdot\frac58=\frac{15}{72}=\frac{5}{24}\\[4pt]
+P(D_1\cap M_2)=\frac19\cdot\frac38=\frac{3}{72}=\frac{1}{24} &
+P(D_1\cap D_2)=\frac19\cdot 0=0 &
+P(D_1\cap W_2)=\frac19\cdot\frac58=\frac{5}{72}\\[4pt]
+P(W_1\cap M_2)=\frac59\cdot\frac38=\frac{15}{72}=\frac{5}{24} &
+P(W_1\cap D_2)=\frac59\cdot\frac18=\frac{5}{72} &
+P(W_1\cap W_2)=\frac59\cdot\frac48=\frac{20}{72}=\frac{5}{18}
+\end{array}
+\]
+As a check, the nine numerators over $72$ add up to
+$6+3+15+3+0+5+15+5+20=72$, so the outcomes total probability $1$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} What is the probability that you and your friend draw the same flavor of
+truffle?
+
+$\answer{13/36}$
+
+\begin{hint}
+Three of the nine outcomes have both truffles the same flavor. Add those three
+probabilities.
+\end{hint}
+
+\begin{feedback}
+The ``same flavor'' outcomes are $M_1\cap M_2$, $D_1\cap D_2$, and $W_1\cap W_2$:
+\[
+\frac{6}{72} + 0 + \frac{20}{72} = \frac{26}{72} = \frac{13}{36} \approx 0.361.
+\]
+Note that $D_1\cap D_2$ contributes nothing, since there is only one dark truffle.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\end{document}

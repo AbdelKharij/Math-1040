@@ -1,0 +1,167 @@
+\documentclass[12pt]{ximera}
+\title{Homework 6: Bayes' Theorem}
+\begin{document}
+\begin{abstract}
+Section 7.6: choosing the tree diagram that matches the information given, applying
+Bayes' Theorem to voter turnout, and a Covid-19 antigen test whose positive results were
+right less than half the time.
+\end{abstract}
+\maketitle
+
+\section*{Section 7.6: Bayes' Theorem}
+
+\begin{problem}
+Suppose after an election, it is determined that only $60\%$ of eligible voters
+actually voted ($V$). Among those who voted, $35\%$ were registered Republican
+($R$), $30\%$ Democrat ($D$), $25\%$ Independent ($I$), and $10\%$ other ($O$);
+and among those who didn't vote ($\olsi{V}$), $20\%$ were registered Republican,
+$25\%$ Democrat, $30\%$ Independent, and $25\%$ other.
+
+\begin{prompt}
+\textbf{(a)} What is the probability that an eligible voter did \emph{not} vote in this
+election, $P\!\left(\olsi{V}\right)$?
+
+$P\!\left(\olsi{V}\right)=\answer[tolerance=0.001]{0.4}$
+
+\begin{feedback}
+$P\!\left(\olsi{V}\right)=1-P(V)=1-0.60=0.40$.
+
+The party percentages are all \emph{conditional} probabilities, since each was
+reported within a group: for instance $P(I\mid V)=0.25$ and
+$P\!\left(I\mid\olsi{V}\right)=0.30$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Which tree diagram is appropriate for the information given above?
+
+\begin{multipleChoice}
+\choice{Tree \#1: the first split is by party, and the second split is whether they voted}
+\choice[correct]{Tree \#2: the first split is whether they voted, and the second split is by party}
+\end{multipleChoice}
+
+\begin{hint}
+A tree's second-generation branches carry conditional probabilities of the form
+$P(\text{second}\mid\text{first})$. Which way around were the percentages in the
+problem reported?
+\end{hint}
+
+\begin{feedback}
+Tree \#2. The problem gives $P(V)$ first, and then reports party membership
+\emph{within} each voting group --- $P(R\mid V)$, $P(R\mid\olsi{V})$, and so on.
+That is exactly the structure of a tree that splits on voting status first and party
+second.
+
+Tree \#1 would require the probabilities $P(V\mid R)$, $P(V\mid D)$, and so forth on
+its second-generation branches, and those are not given --- in fact finding one of
+them is the point of part (c).
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} Using Bayes' Theorem, determine the probability that an eligible voter
+who was registered Independent actually voted in the election. That is, determine
+$P(V\mid I)$.
+
+Give your answer as a fraction in lowest terms: $P(V\mid I)=\answer{5/9}$
+
+\begin{hint}
+Bayes' Theorem here reads
+\[
+P(V\mid I)=\frac{P(I\mid V)P(V)}{P(I\mid V)P(V)+P\left(I\mid\olsi{V}\right)P\left(\olsi{V}\right)}.
+\]
+The denominator is just the total probability of being Independent, found by adding
+up the two paths through the tree that end in $I$.
+\end{hint}
+
+\begin{feedback}
+There are two paths through the tree that end at ``Independent'':
+\[
+P(I\cap V)=P(I\mid V)P(V)=(0.25)(0.60)=0.15,
+\]
+\[
+P\left(I\cap\olsi{V}\right)=P\left(I\mid\olsi{V}\right)P\left(\olsi{V}\right)=(0.30)(0.40)=0.12.
+\]
+So $P(I)=0.15+0.12=0.27$, and
+\[
+P(V\mid I)=\frac{P(I\cap V)}{P(I)}=\frac{0.15}{0.27}=\frac{15}{27}=\frac59\approx 0.556.
+\]
+So about $55.6\%$ of registered Independents voted --- lower than the $60\%$ overall
+turnout, which makes sense because Independents were over-represented among
+non-voters.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Consider the following definitions, then use Bayes' Theorem (with a tree diagram) to
+solve.
+\begin{itemize}
+\item The \emph{sensitivity} of a medical test is the probability that the test will
+      (accurately) return a positive result, provided whatever it's testing for is
+      indeed present.
+\item If what is being tested for is present but the test returns a negative result,
+      the result is called a \emph{false negative}. The probability of a false negative
+      is $1-\text{sensitivity}$.
+\item The \emph{specificity} of a medical test is the probability that the test will
+      (accurately) return a negative result, provided whatever it's testing for is NOT
+      present.
+\item If what is being tested for is NOT present but the test returns a positive result,
+      the result is called a \emph{false positive}. The probability of a false positive
+      is $1-\text{specificity}$.
+\end{itemize}
+
+In 2020, in large population centers in the US, the ``community infectious rate'' (the
+percentage of people who are currently infectious) for Covid-19 rose as high as $2.4\%$.
+Take this to be the probability of the virus being present. The antigen test developed
+at the time had approximately $62\%$ sensitivity and $98\%$ specificity.
+
+\begin{prompt}
+\textbf{(a)} What was the probability that someone \emph{did} have Covid-19, given
+they received a \emph{positive} antigen test result? Round to the nearest percent.
+
+$\answer{43}\%$
+
+\begin{hint}
+Two paths end in a positive result: infected and correctly flagged, and not infected
+but falsely flagged (probability $1-0.98=0.02$).
+\end{hint}
+
+\begin{feedback}
+Write $C$ for having Covid-19. Then $P(C)=0.024$, $P(+\mid C)=0.62$, and
+$P\!\left(+\mid\olsi{C}\right)=1-0.98=0.02$. The two paths to a positive result are
+\[
+P(C\cap +)=(0.024)(0.62)=0.01488, \qquad P\!\left(\olsi{C}\cap +\right)=(0.976)(0.02)=0.01952,
+\]
+so
+\[
+P(C\mid +)=\frac{0.01488}{0.01488+0.01952}=\frac{0.01488}{0.0344}\approx 0.4326,
+\]
+about $43\%$. Fewer than half of the positive results were real infections --- the
+false positives from the large uninfected population outnumber the true positives.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} What is the probability that someone did \emph{not} have Covid-19, given
+they received a \emph{negative} antigen test result? Round to the nearest percent.
+
+$\answer{99}\%$
+
+\begin{feedback}
+The two paths to a negative result are
+\[
+P\!\left(\olsi{C}\cap -\right)=(0.976)(0.98)=0.95648, \qquad
+P(C\cap -)=(0.024)(0.38)=0.00912,
+\]
+so
+\[
+P\!\left(\olsi{C}\mid -\right)=\frac{0.95648}{0.95648+0.00912}=\frac{0.95648}{0.9656}\approx 0.9906,
+\]
+about $99\%$. A negative result was very reassuring even though the test missed $38\%$
+of infections, because infections were rare.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\end{document}

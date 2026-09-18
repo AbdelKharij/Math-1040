@@ -1,0 +1,237 @@
+\documentclass[12pt]{ximera}
+\title{Exam 2}
+\begin{document}
+\begin{abstract}
+Exam 2, covering Sections 7.5--8.2: what the multiplication principle can and cannot
+count, testing independence from survey data, four counting techniques side by side,
+and Bayes' Theorem for rain and wind.
+\end{abstract}
+\maketitle
+
+\section*{Exam 2}
+
+\begin{problem}
+Assess whether each of the following claims is true or false.
+
+\begin{prompt}
+\textbf{(a)} Claim: the multiplication principle can be used to count any situation that
+can be framed as a series of choices made one at a time.
+
+\begin{multipleChoice}
+\choice{True}
+\choice[correct]{False}
+\end{multipleChoice}
+
+\begin{feedback}
+False. Multiplying stage counts counts \emph{ordered} sequences of choices. When order
+does not matter, that overcounts: choosing a committee of $3$ from $20$ can be framed as
+three one-at-a-time choices, but $20\cdot 19\cdot 18=6840$ counts each committee $3!=6$
+times. The correct count is $C(20,3)=1140$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Claim: the multiplication principle does NOT work in situations where order
+matters.
+
+\begin{multipleChoice}
+\choice{True}
+\choice[correct]{False}
+\end{multipleChoice}
+
+\begin{feedback}
+False --- it is the reverse. The multiplication principle is at its most natural when
+order matters; the permutation formula $P(n,r)=n(n-1)\cdots(n-r+1)$ is a direct
+application of it.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Suppose that in a survey of $64$ students, $36$ report they like turtles and $48$ report
+they like hedgehogs; $27$ of the students report they like \emph{both}.
+
+\begin{prompt}
+\textbf{(a)} Among the students who like turtles, what is the probability that they also
+like hedgehogs? Enter a fraction in lowest terms.
+
+$\answer{3/4}$
+
+\begin{feedback}
+Of the $36$ turtle-likers, $27$ also like hedgehogs: $P(H\mid T)=\frac{27}{36}=\frac34$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Two events are independent if assuming one of them has no impact on the
+probability of the other: $P(E\mid F)=P(E)$. In this survey, are liking turtles and
+liking hedgehogs independent events?
+
+\begin{multipleChoice}
+\choice[correct]{Yes}
+\choice{No}
+\end{multipleChoice}
+
+\begin{feedback}
+Yes. Overall, $P(H)=\frac{48}{64}=\frac34$, which is exactly $P(H\mid T)$ from part (a).
+Knowing a student likes turtles does not change the chance they like hedgehogs.
+
+Equivalently, $P(T)\cdot P(H)=\frac{36}{64}\cdot\frac{48}{64}=\frac{27}{64}=P(T\cap H)$.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Use counting techniques to answer the following. For each, identify whether you're using
+the multiplication principle, permutations, \emph{distinguishable} permutations, or
+combinations.
+
+\begin{prompt}
+\textbf{(a)} How many different starting lineups of five basketball players from a team
+of $15$ are possible, if we consider a lineup just a subset?
+
+\begin{multipleChoice}
+\choice{Multiplication principle}
+\choice{Permutations}
+\choice{Distinguishable permutations}
+\choice[correct]{Combinations}
+\end{multipleChoice}
+
+The count is $\answer{3003}$.
+
+\begin{feedback}
+A subset of $5$ from $15$: $C(15,5)=3003$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} How many different rankings are possible if you select and rank your three
+favorite songs from an album of $20$ different songs?
+
+\begin{multipleChoice}
+\choice{Multiplication principle}
+\choice[correct]{Permutations}
+\choice{Distinguishable permutations}
+\choice{Combinations}
+\end{multipleChoice}
+
+The count is $\answer{6840}$.
+
+\begin{feedback}
+A ranking is ordered with no repeats: $P(20,3)=20\cdot 19\cdot 18=6840$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} How many distinct patterns can you make by arranging $7$ yellow, $4$ red,
+and $5$ blue painted tiles all in a row?
+
+\begin{multipleChoice}
+\choice{Multiplication principle}
+\choice{Permutations}
+\choice[correct]{Distinguishable permutations}
+\choice{Combinations}
+\end{multipleChoice}
+
+The count is $\answer{1441440}$.
+
+\begin{hint}
+There are $16$ tiles, but tiles of the same color are interchangeable. Divide out the
+rearrangements within each color.
+\end{hint}
+
+\begin{feedback}
+\[
+\frac{16!}{7!\,4!\,5!}=1{,}441{,}440.
+\]
+The $16!$ counts arrangements as if every tile were different; dividing by $7!$, $4!$,
+and $5!$ removes the swaps of same-colored tiles, which do not change the pattern.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(d)} How many different $6$-digit passcodes are possible if each digit is a
+number from $0$ to $9$?
+
+\begin{multipleChoice}
+\choice[correct]{Multiplication principle}
+\choice{Permutations}
+\choice{Distinguishable permutations}
+\choice{Combinations}
+\end{multipleChoice}
+
+The count is $\answer{1000000}$.
+
+\begin{feedback}
+Each of the $6$ digits is chosen independently from $10$, with repeats allowed:
+$10^6=1{,}000{,}000$.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+You've been inside all day, but you know that the chance of high winds today is $40\%$.
+The chance of rain if there are high winds is $40\%$, and the chance of rain if there are
+\emph{no} high winds is $30\%$. Your friend comes over and mentions that it is raining.
+Given this, what is the likelihood that there are high winds today?
+
+\begin{prompt}
+\textbf{(a)} Build the tree diagram. Which event belongs on the first set of branches?
+
+\begin{multipleChoice}
+\choice[correct]{Wind first, then rain}
+\choice{Rain first, then wind}
+\end{multipleChoice}
+
+Branch probabilities:
+
+$P(W)=\answer[tolerance=0.001]{0.4}$ \qquad $P(\olsi{W})=\answer[tolerance=0.001]{0.6}$
+
+\smallskip
+$P(R\mid W)=\answer[tolerance=0.001]{0.4}$ \qquad $P(\olsi{R}\mid W)=\answer[tolerance=0.001]{0.6}$
+
+\smallskip
+$P(R\mid \olsi{W})=\answer[tolerance=0.001]{0.3}$ \qquad
+$P(\olsi{R}\mid \olsi{W})=\answer[tolerance=0.001]{0.7}$
+
+\begin{feedback}
+The information given is $P(W)$ and then the chance of rain \emph{given} the wind
+situation, so wind goes on the first branches and rain on the second. Each pair of
+branches from a point adds to $1$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Multiply along each path.
+
+$P(W\cap R)=\answer[tolerance=0.001]{0.16}$ \qquad
+$P(W\cap \olsi{R})=\answer[tolerance=0.001]{0.24}$
+
+\smallskip
+$P(\olsi{W}\cap R)=\answer[tolerance=0.001]{0.18}$ \qquad
+$P(\olsi{W}\cap \olsi{R})=\answer[tolerance=0.001]{0.42}$
+
+\begin{feedback}
+$(0.4)(0.4)=0.16$, $(0.4)(0.6)=0.24$, $(0.6)(0.3)=0.18$, $(0.6)(0.7)=0.42$, which total
+$1$. \checkmark
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} Knowing that it \emph{is} raining, what is the probability that there are
+high winds today? Give a percentage rounded to two decimal places.
+
+$\answer[tolerance=0.005]{47.06}\%$
+
+\begin{feedback}
+Two paths end in rain, so $P(R)=0.16+0.18=0.34$, and
+\[
+P(W\mid R)=\frac{P(W\cap R)}{P(R)}=\frac{0.16}{0.34}=\frac{8}{17}\approx 47.06\%.
+\]
+Learning that it is raining raises the chance of high winds from $40\%$ to about $47\%$,
+because rain is somewhat more likely when it is windy.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\end{document}

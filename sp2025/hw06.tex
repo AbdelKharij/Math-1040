@@ -1,0 +1,213 @@
+\documentclass[12pt]{ximera}
+\title{Homework 6: Independence, Bayes, and the Multiplication Principle}
+\begin{document}
+\begin{abstract}
+Sections 7.5, 7.6, and 8.1: recognizing independent events, total probability and
+Bayes' Theorem from a voting example, and counting arrangements with the
+multiplication principle.
+\end{abstract}
+\maketitle
+
+\section*{Sections 7.5--7.6 and 8.1}
+
+\begin{problem}
+Identify whether each of the following pairs of events is independent or not.
+
+\begin{prompt}
+\textbf{(a)} Event $E$: your laundry machine is broken. \\
+Event $F$: you have worn the same shirt multiple times in the last week.
+
+\begin{multipleChoice}
+\choice{Independent}
+\choice[correct]{Not independent}
+\end{multipleChoice}
+
+\begin{feedback}
+Not independent. A broken machine makes re-wearing a shirt more likely, so
+$P(F\mid E)>P(F)$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Drawing cards from a deck \emph{with} replacement. \\
+Event $E$: you draw a red card on the first draw. \\
+Event $F$: you draw a red card on the second draw.
+
+\begin{multipleChoice}
+\choice[correct]{Independent}
+\choice{Not independent}
+\end{multipleChoice}
+
+\begin{feedback}
+Independent. The first card is returned, so the second draw faces the full deck either
+way: $P(F\mid E)=\frac{26}{52}=P(F)$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} Drawing cards from a deck \emph{without} replacement. \\
+Event $E$: you draw a red card on the first draw. \\
+Event $F$: you draw a red card on the second draw.
+
+\begin{multipleChoice}
+\choice{Independent}
+\choice[correct]{Not independent}
+\end{multipleChoice}
+
+\begin{feedback}
+Not independent. After a red card is removed, $P(F\mid E)=\frac{25}{51}$, which differs
+from $P(F)=\frac12$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(d)} Event $E$: the high today is above $60^\circ$ Fahrenheit. \\
+Event $F$: you are dressed in a sweater.
+
+\begin{multipleChoice}
+\choice{Independent}
+\choice[correct]{Not independent}
+\end{multipleChoice}
+
+\begin{feedback}
+Not independent. A warm day makes a sweater less likely, so $P(F\mid E)<P(F)$.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Use a tree diagram and/or Bayes' Theorem to solve the following.
+
+Suppose in an election, only $60\%$ of eligible voters actually voted. Among those who
+voted, $35\%$ were registered Republican, $30\%$ Democrat, $25\%$ Independent, and $10\%$
+other; among those who didn't vote, $20\%$ were registered Republican, $25\%$ Democrat,
+$30\%$ Independent, and $25\%$ other.
+
+\begin{prompt}
+\textbf{(a)} What is the total probability that an eligible voter was registered
+Independent?
+
+$P(I) = \answer[tolerance=0.001]{0.27}$
+
+\begin{hint}
+Two branches of the tree end at ``Independent'': voted-and-Independent, and
+didn't-vote-and-Independent. Add them.
+\end{hint}
+
+\begin{feedback}
+\[
+P(I)=P(V)P(I\mid V)+P\!\left(\olsi{V}\right)P\!\left(I\mid\olsi{V}\right)
+=(0.60)(0.25)+(0.40)(0.30)=0.15+0.12=0.27.
+\]
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} What is the probability that someone registered Independent voted in the
+election --- that is, $P(V\mid I)$? Enter a fraction in lowest terms.
+
+$\answer{5/9}$
+
+\begin{feedback}
+\[
+P(V\mid I)=\frac{P(V\cap I)}{P(I)}=\frac{0.15}{0.27}=\frac{15}{27}=\frac59\approx 0.556.
+\]
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Use the multiplication principle to count the following.
+
+A family has ten siblings, and it is hard to remember their birth order perfectly.
+
+\begin{prompt}
+\textbf{(a)} Guessing at random, how many orderings of the ten siblings are there,
+oldest to youngest?
+
+$\answer{3628800}$
+
+\begin{feedback}
+There are $10$ choices for the oldest, then $9$ for the next, and so on:
+\[ 10\cdot 9\cdot 8\cdots 1 = 10! = 3{,}628{,}800. \]
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Suppose you remember the positions of four of the siblings: Ann is oldest,
+Bill is second, Carol is second-youngest, and Dave is youngest. How many orderings
+have these four in their correct positions?
+
+$\answer{720}$
+
+\begin{feedback}
+Four positions are settled, leaving the other $6$ siblings to fill the $6$ middle
+positions in any order: $6! = 720$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} Suppose instead you remember only the pattern, oldest to youngest:
+\[
+\text{girl, boy, boy, boy, girl, boy, girl, boy, girl, boy}.
+\]
+How many orderings of the ten siblings fit this pattern, given there are $6$ boys and
+$4$ girls?
+
+$\answer{17280}$
+
+\begin{hint}
+The pattern fixes which positions hold girls and which hold boys. Arrange the girls
+among their positions, and independently the boys among theirs.
+\end{hint}
+
+\begin{feedback}
+The $4$ girls fill the four girl positions in $4!=24$ ways, and independently the $6$
+boys fill the six boy positions in $6!=720$ ways:
+\[ 4!\cdot 6! = 24\cdot 720 = 17{,}280. \]
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Suppose you want to plan outfits for a $7$-day trip. You've made a checklist of the
+decisions you need to make:
+\begin{itemize}
+\item You own $20$ tops, and need to select and order $7$ for the trip.
+\item You own $12$ bottoms, and similarly need to select and order $7$ for the trip.
+\item You own $15$ pairs of socks, and need to select and order $7$ pairs for the trip.
+\end{itemize}
+
+\begin{prompt}
+Write a formula for the number of possible outfit arrangements for the week.
+
+\begin{freeResponse}
+\end{freeResponse}
+
+\begin{feedback}
+Each checklist item selects \emph{and orders} $7$ items, so each is a permutation, and
+the three are independent decisions:
+\[
+P(20,7)\cdot P(12,7)\cdot P(15,7) = \frac{20!}{13!}\cdot\frac{12!}{5!}\cdot\frac{15!}{8!}.
+\]
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+Enter the value of each factor:
+
+$P(20,7)=\answer{390700800}$ \qquad $P(12,7)=\answer{3991680}$ \qquad
+$P(15,7)=\answer{32432400}$
+
+\begin{feedback}
+\[
+P(20,7)=20\cdot 19\cdots 14=390{,}700{,}800,\quad
+P(12,7)=12\cdot 11\cdots 6=3{,}991{,}680,\quad
+P(15,7)=15\cdot 14\cdots 9=32{,}432{,}400.
+\]
+Their product is about $5.06\times 10^{22}$ possible weeks.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\end{document}

@@ -1,0 +1,127 @@
+\documentclass[12pt]{ximera}
+\title{Homework 2: Sets, Subsets, and Set Operations}
+\begin{document}
+\begin{abstract}
+Section 7.1: listing the elements of sets built from complements, differences, and
+intersections; explaining a set identity in words; and counting the subsets of
+a finite set.
+\end{abstract}
+\maketitle
+
+\section*{Section 7.1: Sets, Subsets, and Set Operations}
+
+\begin{problem}
+Let
+\[
+\mathcal{U}=\set{2,3,4,5,7,9}, \quad
+X=\set{2,3,4,5}, \quad
+Y=\set{3,5,7,9}, \quad
+Z=\set{2,4,5,7,9}.
+\]
+List the elements of each of the following sets. In each part, enter the elements in
+increasing order.
+
+\begin{prompt}
+\textbf{(a)} $\olsi{X} = \set{\answer{7},\ \answer{9}}$
+
+\begin{hint}
+The complement $\olsi{X}$ is everything in the universal set $\mathcal{U}$ that is
+\emph{not} in $X$.
+\end{hint}
+
+\begin{feedback}
+Removing the elements of $X=\set{2,3,4,5}$ from $\mathcal{U}=\set{2,3,4,5,7,9}$ leaves
+\[ \olsi{X} = \set{7,9}. \]
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} $Z - \olsi{X} = \set{\answer{2},\ \answer{4},\ \answer{5}}$
+
+\begin{hint}
+$Z-\olsi{X}$ means the elements of $Z$ with any element of $\olsi{X}$ thrown out.
+\end{hint}
+
+\begin{feedback}
+$Z=\set{2,4,5,7,9}$ and $\olsi{X}=\set{7,9}$. Removing $7$ and $9$ from $Z$ leaves
+\[ Z-\olsi{X} = \set{2,4,5}. \]
+(Equivalently, $Z-\olsi{X}=Z\cap X$.)
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} $Y\cap\left(Z - \olsi{X}\right) = \set{\answer{5}}$
+
+\begin{feedback}
+From part (b), $Z-\olsi{X}=\set{2,4,5}$, and $Y=\set{3,5,7,9}$. The only element they
+share is $5$, so $Y\cap\left(Z-\olsi{X}\right)=\set{5}$.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Explain in words why
+\[ \left(A\cap B\right)\cup\left(A\cap\olsi{B}\right) = A. \]
+
+\begin{freeResponse}
+\end{freeResponse}
+
+\begin{hint}
+Translate each piece into words using ``and'' and ``not''. Every element of $A$ either
+is in $B$ or is not.
+\end{hint}
+
+\begin{feedback}
+The left-hand side is the set of things that are ``in $A$ and in $B$'' together with
+the things that are ``in $A$ and not in $B$''.
+
+Every element of $A$ falls into exactly one of those two groups, since an element is
+either in $B$ or it is not. So between them the two pieces contain all of $A$. And both
+pieces are parts of $A$, so the union contains nothing outside $A$. Therefore the union
+is exactly $A$.
+\end{feedback}
+\end{problem}
+
+\begin{problem}
+Suppose $6$ flavors of cat food are available at the store. Euclid the cat might like all $6$ flavors, or none of them, or any other
+subset of them. How many possibilities are there for the subset of flavors Euclid
+likes among the $6$ available flavors?
+
+$\answer{64}$ possible subsets.
+
+\begin{hint}
+Decide flavor by flavor: for each of the $6$ flavors, Euclid either likes it or does
+not. That is $2$ choices per flavor, made independently.
+\end{hint}
+
+\begin{feedback}
+A set with $n$ elements has $2^n$ subsets, since each element is independently either
+in or out. Here $n=6$, so there are
+\[ 2^6 = 64 \]
+possible subsets of flavors --- including the empty set (Euclid likes nothing) and
+the whole set (Euclid likes everything).
+\end{feedback}
+\end{problem}
+
+\begin{problem}
+A concert features a cellist, a flutist, a harpist, and a vocalist. Each song
+features a different subset of \emph{at least two} of the featured musicians. How
+many songs are in the concert if every such subset is featured once?
+
+$\answer{11}$ songs.
+
+\begin{hint}
+Start with all $2^4$ subsets of the four musicians, then subtract the ones that are
+too small to be a song: the empty set, and the four solos.
+\end{hint}
+
+\begin{feedback}
+There are $2^4=16$ subsets of the four musicians in total. The subsets that do
+\emph{not} have at least two members are the empty subset ($1$ of them) and the
+one-musician subsets ($4$ of them), for $5$ subsets to discard. That leaves
+\[ 16 - 1 - 4 = 11 \]
+subsets of at least two musicians, so the concert has $11$ songs.
+\end{feedback}
+\end{problem}
+
+\end{document}

@@ -1,0 +1,225 @@
+\documentclass[12pt]{ximera}
+\title{Exam 3}
+\begin{document}
+\begin{abstract}
+Exam 3, covering Sections 8.1--8.5: the shape and mean of binomial distributions,
+expected value, passcode guessing, counting supervillain teams, Pascal's triangle, and
+a four-question binomial distribution.
+\end{abstract}
+\maketitle
+
+\section*{Exam 3}
+
+\begin{problem}
+Assess whether each of the following claims is true or false.
+
+\begin{prompt}
+\textbf{(a)} Claim: the probability distribution of a binomial random variable always
+forms a bell-shaped curve, increasing toward a peak and then decreasing again.
+
+\begin{multipleChoice}
+\choice{True}
+\choice[correct]{False}
+\end{multipleChoice}
+
+\begin{feedback}
+False. When $p$ is small the peak can sit at $k=0$, so the distribution only
+decreases. With $n=6$ and $p=0.1$, for example, $P(X=0)\approx 0.531$ and
+$P(X=1)\approx 0.354$, and it keeps falling from there. Likewise a large $p$ gives a
+distribution that only increases.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Claim: the expected value of a random variable is always one of the possible
+outcomes for the random variable.
+
+\begin{multipleChoice}
+\choice{True}
+\choice[correct]{False}
+\end{multipleChoice}
+
+\begin{feedback}
+False. The expected value is a weighted average and need not be achievable --- a fair
+die has $E(X)=3.5$, and Problem 3 below has an expected value of $\$0.40$, which is not
+one of the four payouts.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Based on the shape of the binomial probability distribution below, which of the
+following must be the probability of success per trial?
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{binomialDistributionSix.png}
+\end{center}
+
+\begin{multipleChoice}
+\choice{$0.2$}
+\choice[correct]{$0.4$}
+\choice{$0.5$}
+\choice{$0.6$}
+\choice{$0.8$}
+\end{multipleChoice}
+
+\begin{hint}
+Here $n=6$. Estimate where the distribution balances and use $E(X)=np$.
+\end{hint}
+
+\begin{feedback}
+The variable runs from $0$ to $6$, so $n=6$. The distribution peaks at $k=2$ and leans
+left, so $p<0.5$. Its balance point is about $2.4$, and $np=2.4$ gives $p=0.4$. (With
+$p=0.2$ the mean would be $1.2$ and the peak would be at $k=1$.)
+
+Check: $C(6,2)(0.4)^2(0.6)^4\approx 0.3110$, exactly the height shown at $k=2$.
+\end{feedback}
+\end{problem}
+
+\begin{problem}
+Calculate the expected value of the following probability distribution, to the
+nearest cent.
+
+\begin{center}
+\includegraphics[width=0.9\textwidth]{raffleDistribution.png}
+\end{center}
+
+$\$\answer[tolerance=0.005]{0.40}$
+
+\begin{feedback}
+\[
+E(X)=(-1)(0.6)+0(0.25)+5(0.1)+10(0.05)=-0.60+0+0.50+0.50=0.40,
+\]
+so $E(X)=\$0.40$ --- a favorable game for the player, even though losing a dollar is
+the single most likely outcome.
+\end{feedback}
+\end{problem}
+
+\begin{problem}
+If a six-digit passcode consists of digits $0$--$9$ with repeats allowed, what is the
+probability of someone guessing the passcode correctly on their first try?
+
+The probability is $1$ in $\answer{1000000}$.
+
+\begin{feedback}
+There are $10^6=1{,}000{,}000$ possible passcodes, all equally likely, so the chance is
+$\frac{1}{1{,}000{,}000}$.
+\end{feedback}
+\end{problem}
+
+\begin{problem}
+A group of $12$ supervillains in Gotham are organizing a team of five to take Batman
+down.
+
+\begin{prompt}
+\textbf{(a)} How many different teams of five can be selected if there are no
+particular roles?
+
+$\answer{792}$
+
+\begin{feedback}
+$C(12,5)=792$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} How many different teams of five are possible if each villain on the team
+is given an assigned role?
+
+$\answer{95040}$
+
+\begin{feedback}
+$P(12,5)=12\cdot 11\cdot 10\cdot 9\cdot 8=95{,}040$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} Suppose the Joker is among the twelve. If the team is selected entirely at
+random, what is the probability that the Joker winds up on the team? Enter a fraction in
+lowest terms.
+
+$\answer{5/12}$
+
+\begin{feedback}
+Teams containing the Joker: $C(11,4)=330$. So
+$P=\frac{330}{792}=\frac{5}{12}$ --- as expected, since $5$ of the $12$ are chosen.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(d)} Suppose $4$ of the $12$ supervillains wear masks and the other $8$ don't. If
+the team is selected entirely at random, what is the probability that \emph{all four}
+masked supervillains are on the team? Enter a fraction in lowest terms.
+
+$\answer{1/99}$
+
+\begin{hint}
+If all four masked villains are on the team, how many spots are left, and who can fill
+them?
+\end{hint}
+
+\begin{feedback}
+All four masked villains fill four spots, and the fifth comes from the $8$ others:
+$C(4,4)\cdot C(8,1)=8$ teams. So
+\[ P=\frac{8}{792}=\frac{1}{99}\approx 0.0101. \]
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Complete Pascal's triangle out to the layer that consists of the values of $C(6,k)$ for
+each $k=0,1,\ldots,6$. Enter that row.
+
+$\answer{1}$, $\answer{6}$, $\answer{15}$, $\answer{20}$, $\answer{15}$, $\answer{6}$,
+$\answer{1}$
+
+\begin{feedback}
+Building down from the top: $1$; $1,1$; $1,2,1$; $1,3,3,1$; $1,4,6,4,1$;
+$1,5,10,10,5,1$; and finally $1,6,15,20,15,6,1$.
+\end{feedback}
+\end{problem}
+
+\begin{problem}
+You've made it to the final round of a trivia game, and need to answer the last four
+questions. These questions are tricky, so suppose your answers are correct only $40\%$
+of the time. Let $X$ be the number of questions you answer correctly.
+
+\begin{prompt}
+\textbf{(a)} Using row $4$ of Pascal's triangle, $(1,4,6,4,1)$, compute the
+probability distribution of $X$. Give percentages rounded to two decimal places.
+
+$P(X=0)=\answer[tolerance=0.005]{12.96}\%$ \quad
+$P(X=1)=\answer[tolerance=0.005]{34.56}\%$ \quad
+$P(X=2)=\answer[tolerance=0.005]{34.56}\%$
+
+\smallskip
+$P(X=3)=\answer[tolerance=0.005]{15.36}\%$ \quad
+$P(X=4)=\answer[tolerance=0.005]{2.56}\%$
+
+\begin{feedback}
+With $n=4$ and $p=0.4$:
+\[
+\begin{array}{ll}
+P(X=0)=(0.6)^4=0.1296 & P(X=1)=4(0.4)(0.6)^3=0.3456\\
+P(X=2)=6(0.4)^2(0.6)^2=0.3456 & P(X=3)=4(0.4)^3(0.6)=0.1536\\
+P(X=4)=(0.4)^4=0.0256 &
+\end{array}
+\]
+These total $1$. Note the tie between $k=1$ and $k=2$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} What is the probability of answering \emph{at least two} of the four
+correctly? Give a percentage rounded to two decimal places.
+
+$\answer[tolerance=0.005]{52.48}\%$
+
+\begin{feedback}
+Using the complement,
+$P(X\ge 2)=1-P(X=0)-P(X=1)=1-0.1296-0.3456=0.5248$, or $52.48\%$.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\end{document}

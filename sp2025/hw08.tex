@@ -1,0 +1,228 @@
+\documentclass[12pt]{ximera}
+\title{Homework 8: Binomial Probability and Expected Value}
+\begin{document}
+\begin{abstract}
+Sections 8.4--8.5: the binomial probability formula applied to guessing on a multiple-choice
+exam, Steph Curry's three-point shooting, and a full probability distribution for the
+Warriors' next five games, with its expected value.
+\end{abstract}
+\maketitle
+
+\section*{Sections 8.4--8.5: Binomial Probability and Expected Value}
+
+Throughout, the binomial probability formula is
+\[
+P(X=k) = C(n,k)\, p^k\, (1-p)^{\,n-k},
+\]
+where $n$ is the number of independent trials, $p$ is the probability of success on
+any one trial, and $k$ is the number of successes.
+
+\begin{problem}
+A university's calculus exams consist of six multiple-choice questions, each with
+five possible answers, followed by a few long-form questions.
+
+\begin{prompt}
+\textbf{(a)} If a student guesses randomly on the multiple-choice, what is their
+probability of guessing correctly on each individual question?
+
+As a fraction: $\answer{1/5}$
+
+\begin{feedback}
+One of the five answers is correct and the guess is random, so the probability is
+$\frac15=0.2$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} What is the probability of guessing correctly on all six of the
+multiple-choice questions?
+
+This probability is $1$ in $\answer{15625}$.
+
+\begin{hint}
+All six guesses must be correct, and they are independent, so multiply.
+\end{hint}
+
+\begin{feedback}
+This is the binomial formula with $n=6$, $k=6$:
+\[
+P(X=6)=C(6,6)\left(\tfrac15\right)^6\left(\tfrac45\right)^0=\left(\tfrac15\right)^6
+=\frac{1}{15{,}625}\approx 0.000064,
+\]
+which is about $0.0064\%$ --- and rounds to $0\%$ at the nearest whole percent.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} What is the probability of guessing correctly on \emph{at least four} of
+the six multiple-choice questions?
+
+As a percentage rounded to two decimal places: $\answer[tolerance=0.005]{1.70}\%$
+
+\begin{hint}
+``At least four'' means $k=4$, $k=5$, or $k=6$. Compute all three binomial
+probabilities and add them.
+\end{hint}
+
+\begin{feedback}
+With $n=6$ and $p=\frac15$,
+\[
+P(X=4)=C(6,4)(0.2)^4(0.8)^2 = 15(0.0016)(0.64)=0.01536,
+\]
+\[
+P(X=5)=C(6,5)(0.2)^5(0.8)^1 = 6(0.00032)(0.8)=0.001536,
+\]
+\[
+P(X=6)=C(6,6)(0.2)^6 = 0.000064.
+\]
+Adding,
+\[
+P(X\ge 4)=0.01536+0.001536+0.000064=0.01696=\frac{53}{3125},
+\]
+about $1.70\%$, which rounds to $2\%$ at the nearest whole percent.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Stephen Curry plays basketball for the Golden State Warriors and is well-known for
+his exceptional shooting. Based on his 2024--25 regular season averages, he attempted
+around eleven 3-point shots per game, and made about $40\%$ of the shots he took.
+
+\begin{prompt}
+\textbf{(a)} Complete Pascal's Triangle out to the eleventh row to solve the values
+of $C(11,k)$ for every value of $k=0,1,2,\ldots,11$. Enter that row in order.
+
+$\answer{1}$, $\answer{11}$, $\answer{55}$, $\answer{165}$, $\answer{330}$,
+$\answer{462}$, $\answer{462}$, $\answer{330}$, $\answer{165}$, $\answer{55}$,
+$\answer{11}$, $\answer{1}$
+
+\begin{hint}
+Each entry is the sum of the two entries above it, and every row starts and ends with
+$1$. Row $10$ is $1, 10, 45, 120, 210, 252, 210, 120, 45, 10, 1$.
+\end{hint}
+
+\begin{feedback}
+Row $11$ of Pascal's Triangle is
+\[
+1,\ 11,\ 55,\ 165,\ 330,\ 462,\ 462,\ 330,\ 165,\ 55,\ 11,\ 1.
+\]
+For example $C(11,4)=C(10,3)+C(10,4)=120+210=330$. Notice the row is symmetric,
+since $C(11,k)=C(11,11-k)$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Using the binomial probability formula and the values you computed
+above, what is the probability that Steph Curry makes \emph{exactly four} out of
+eleven attempted 3-point shots in a game?
+
+As a percentage rounded to two decimal places: $\answer[tolerance=0.005]{23.65}\%$
+
+\begin{feedback}
+With $n=11$, $p=0.4$, and $k=4$,
+\[
+P(X=4)=C(11,4)(0.4)^4(0.6)^7 = 330\,(0.0256)(0.0279936)\approx 0.23649,
+\]
+about $23.65\%$.
+
+Note that four out of eleven is the single most likely outcome, and it still happens
+less than a quarter of the time.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} What is the probability that he makes \emph{seven or more} out of eleven
+attempted 3-point shots in a game?
+
+As a percentage rounded to two decimal places: $\answer[tolerance=0.005]{9.94}\%$
+
+\begin{hint}
+``Seven or more'' means $k=7,8,9,10,11$. From part (a), $C(11,7)=330$, $C(11,8)=165$,
+$C(11,9)=55$, $C(11,10)=11$, and $C(11,11)=1$.
+\end{hint}
+
+\begin{feedback}
+With $n=11$ and $p=0.4$:
+\[
+\begin{array}{ll}
+P(X=7)=330\,(0.4)^7(0.6)^4 \approx 0.070071\\
+P(X=8)=165\,(0.4)^8(0.6)^3 \approx 0.023357\\
+P(X=9)=55\,(0.4)^9(0.6)^2 \approx 0.005190\\
+P(X=10)=11\,(0.4)^{10}(0.6) \approx 0.000692\\
+P(X=11)=(0.4)^{11} \approx 0.000042
+\end{array}
+\]
+These add to about $0.099353$, or $9.94\%$ --- about $10\%$ to the nearest whole
+percent. Roughly one game in ten.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+During the 2024--25 regular season, the Golden State Warriors had a winning
+percentage of about $58.5\%$ (calculated by comparing their wins, $48$, to their
+total games played, $82$). Suppose we take this to be the probability that they will
+win any particular game, on average.
+
+\begin{prompt}
+\textbf{(a)} Using the binomial probability formula and the fifth row of Pascal's
+triangle $(1,5,10,10,5,1)$, calculate the probability distribution for the number of
+games the Warriors might win out of a set of five games.
+
+Give each probability as a percentage rounded to two decimal places.
+
+$P(X=0)=\answer[tolerance=0.005]{1.23}\%$ \qquad
+$P(X=1)=\answer[tolerance=0.005]{8.68}\%$ \qquad
+$P(X=2)=\answer[tolerance=0.005]{24.46}\%$
+
+\smallskip
+$P(X=3)=\answer[tolerance=0.005]{34.48}\%$ \qquad
+$P(X=4)=\answer[tolerance=0.005]{24.30}\%$ \qquad
+$P(X=5)=\answer[tolerance=0.005]{6.85}\%$
+
+\begin{hint}
+Use $n=5$ and $p=0.585$, so $1-p=0.415$. As a check on your work, all six
+probabilities must add to $100\%$.
+\end{hint}
+
+\begin{feedback}
+With $n=5$, $p=0.585$, and $1-p=0.415$:
+\[
+\begin{array}{ll}
+P(X=0)=1\,(0.415)^5 \approx 0.0123 & \to 1.23\%\\
+P(X=1)=5\,(0.585)(0.415)^4 \approx 0.0868 & \to 8.68\%\\
+P(X=2)=10\,(0.585)^2(0.415)^3 \approx 0.2446 & \to 24.46\%\\
+P(X=3)=10\,(0.585)^3(0.415)^2 \approx 0.3448 & \to 34.48\%\\
+P(X=4)=5\,(0.585)^4(0.415) \approx 0.2430 & \to 24.30\%\\
+P(X=5)=(0.585)^5 \approx 0.0685 & \to 6.85\%
+\end{array}
+\]
+These sum to $100.00\%$, as a probability distribution must.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} How many games should we expect the Warriors to win out of five? That is,
+what is the expected value of the random variable $X$? Round to two decimal places.
+
+$E(X) = \answer[tolerance=0.005]{2.93}$
+
+\begin{hint}
+Either multiply each value $k$ by its probability and add, or use the shortcut for a
+binomial random variable, $E(X)=np$.
+\end{hint}
+
+\begin{feedback}
+Using the distribution from part (a),
+\[
+E(X)=0(0.0123)+1(0.0868)+2(0.2446)+3(0.3448)+4(0.2430)+5(0.0685)\approx 2.925,
+\]
+and the binomial shortcut agrees exactly: $E(X)=np=5(0.585)=2.925$, which rounds to
+$2.93$ games. Note that $2.93$ games is not a possible outcome; it is a long-run
+average.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\end{document}

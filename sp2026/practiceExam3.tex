@@ -1,0 +1,278 @@
+\documentclass[12pt]{ximera}
+\title{Practice Exam 3}
+\begin{document}
+\begin{abstract}
+Practice for Exam 3, covering Sections 8.1--8.5: expected value, reading the success probability
+off the shape of a binomial distribution, counting superhero teams with and without
+assigned roles, complementary counting, and a full binomial distribution.
+\end{abstract}
+\maketitle
+
+\section*{Practice Exam 3}
+
+\begin{problem}
+Assess whether each of the following claims is true or false.
+
+\begin{prompt}
+\textbf{(a)} Claim: the expected value of a random variable must be one of the
+possible outcomes for the random variable.
+
+\begin{multipleChoice}
+\choice{True}
+\choice[correct]{False}
+\end{multipleChoice}
+
+\begin{feedback}
+False. The expected value is a weighted average of the outcomes, and an average need
+not itself be an achievable outcome --- a fair die has $E(X)=3.5$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Claim: the expected value of a \emph{binomial} random variable is always
+equal to the probability of success per trial times the number of trials.
+
+\begin{multipleChoice}
+\choice[correct]{True}
+\choice{False}
+\end{multipleChoice}
+
+\begin{feedback}
+True: for a binomial random variable, $E(X)=n\cdot p$.
+
+For instance, if you attempt $11$ three-point shots at a $40\%$ rate, you expect
+$11(0.4)=4.4$ makes --- which lines up with $4$ being the single most likely
+outcome, as computed on Homework 9.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Based on the shape of the binomial probability distribution below, which of the
+following must be the probability of success per trial?
+
+\begin{center}
+\includegraphics[width=0.85\textwidth]{binomialDistributionSeven.png}
+\end{center}
+
+\begin{multipleChoice}
+\choice{$0.18$}
+\choice{$0.34$}
+\choice{$0.5$}
+\choice[correct]{$0.63$}
+\choice{$0.87$}
+\end{multipleChoice}
+
+\begin{hint}
+Use $E(X)=np$ backwards. Read off roughly where the distribution balances, and divide
+by the number of trials --- here $n=7$, since $k$ runs from $0$ to $7$.
+\end{hint}
+
+\begin{feedback}
+The variable runs from $k=0$ to $k=7$, so $n=7$. The distribution is clearly
+skewed toward the high end, peaking at $k=4$ and $k=5$, so $p$ must be well above
+$0.5$ --- that rules out $0.18$, $0.34$, and $0.5$ immediately.
+
+To choose between $0.63$ and $0.87$, use $E(X)=np$. The balance point of the graph is
+a bit above $4$, and
+\[
+7(0.63)=4.41, \qquad 7(0.87)=6.09.
+\]
+A mean of $6.09$ would put the peak at $k=6$, which does not match. So $p=0.63$.
+
+(Checking directly: $C(7,4)(0.63)^4(0.37)^3\approx 0.2793$, exactly the height shown
+for $k=4$.)
+\end{feedback}
+\end{problem}
+
+\begin{problem}
+Calculate the expected value of the following probability distribution.
+
+\begin{center}
+\includegraphics[width=0.6\textwidth]{prizeDistribution.png}
+\end{center}
+
+Give your answer to the nearest cent: $\$\answer[tolerance=0.005]{31.50}$
+
+\begin{hint}
+Multiply each dollar value by its probability, then add them all up.
+\end{hint}
+
+\begin{feedback}
+\begin{align*}
+E(X) &= 5(0.3) + 10(0.1) + 20(0.2) + 50(0.3) + 100(0.1)\\
+     &= 1.50 + 1.00 + 4.00 + 15.00 + 10.00\\
+     &= 31.50.
+\end{align*}
+So $E(X)=\$31.50$.
+
+Notice that the probabilities $0.3+0.1+0.2+0.3+0.1$ total $1$, as they must, and that
+$\$31.50$ is not one of the five possible values --- another instance of Problem 1(a).
+\end{feedback}
+\end{problem}
+
+\begin{problem}
+What is the probability of randomly correctly guessing a $4$-digit passcode if each
+digit is a number $0$--$9$, with repeats allowed?
+
+The probability is $1$ in $\answer{10000}$.
+
+\begin{feedback}
+By the multiplication principle there are
+\[ 10\cdot 10\cdot 10\cdot 10 = 10^4 = 10{,}000 \]
+possible passcodes, all equally likely, so the probability of guessing correctly is
+\[ \frac{1}{10{,}000} = 0.0001. \]
+\end{feedback}
+\end{problem}
+
+\begin{problem}
+A group of $15$ lesser-known superheroes are organizing a new team of six that they
+plan to call the ``B-vengers'' (as opposed to the ``A-vengers'').
+
+\begin{prompt}
+\textbf{(a)} How many different teams of six superheroes can be selected from the
+group of fifteen?
+
+$\answer{5005}$
+
+\begin{feedback}
+\[ C(15,6)=\frac{15!}{6!\,9!}=5005. \]
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} How many different teams of six are possible if each hero on the team
+takes on a particular role (so the same six heroes in different roles is considered
+distinct)?
+
+$\answer{3603600}$
+
+\begin{feedback}
+\[ P(15,6)=15\cdot 14\cdot 13\cdot 12\cdot 11\cdot 10 = 3{,}603{,}600, \]
+which is $6!=720$ times the answer to part (a).
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} If $4$ of the superheroes wear capes and $11$ do not, and the team of six
+is selected entirely at random, what is the probability that there will be \emph{at
+least one} caped hero on the team?
+
+As a percentage rounded to one decimal place: $\answer[tolerance=0.05]{90.8}\%$
+
+\begin{hint}
+``At least one'' is much easier to compute as the complement of ``none''. How many
+six-hero teams can be formed using only the $11$ capeless heroes?
+\end{hint}
+
+\begin{feedback}
+Use the complement. A team with \emph{no} caped heroes must be drawn entirely from the
+$11$ capeless heroes, and there are $C(11,6)=462$ such teams. So
+\[
+P(\text{no capes})=\frac{462}{5005}\approx 0.0923,
+\]
+and therefore
+\[
+P(\text{at least one cape}) = 1 - 0.0923 = 0.9077,
+\]
+about $90.8\%$.
+
+Computing this directly would mean adding the cases of exactly one, two, three, and
+four caped heroes --- four calculations instead of one.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(d)} With the same $4$ caped and $11$ capeless heroes, what is the probability
+that \emph{all four} caped heroes will be selected for the team?
+
+As a percentage rounded to one decimal place: $\answer[tolerance=0.05]{1.1}\%$
+
+\begin{feedback}
+If all four caped heroes are on the team, the remaining $2$ spots are filled from the
+$11$ capeless heroes:
+\[
+C(4,4)\cdot C(11,2) = 1\cdot 55 = 55
+\]
+favorable teams. So
+\[
+P = \frac{55}{5005} = \frac{1}{91} \approx 0.01099,
+\]
+about $1.1\%$.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+You're baking a cake that requires you to separate $5$ eggs worth of whites and
+yolks. Suppose $70\%$ of the time you are able to separate them without breaking the
+yolk. Define the random variable $X$ to be the number of eggs successfully separated
+without breaking the yolk.
+
+\begin{prompt}
+\textbf{(a)} Complete Pascal's triangle out to the layer that consists of the values
+of $C(5,k)$ for each $k=0,1,2,3,4,5$.
+
+$\answer{1}$, $\answer{5}$, $\answer{10}$, $\answer{10}$, $\answer{5}$, $\answer{1}$
+
+\begin{feedback}
+Row $4$ is $1, 4, 6, 4, 1$; adding adjacent pairs gives row $5$:
+\[ 1,\ 5,\ 10,\ 10,\ 5,\ 1. \]
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Using the row you just calculated, compute the probability distribution
+for the random variable $X$. Give each probability as a percentage rounded to two
+decimal places.
+
+$P(X=0)=\answer[tolerance=0.005]{0.24}\%$ \qquad
+$P(X=1)=\answer[tolerance=0.005]{2.84}\%$ \qquad
+$P(X=2)=\answer[tolerance=0.005]{13.23}\%$
+
+\smallskip
+$P(X=3)=\answer[tolerance=0.005]{30.87}\%$ \qquad
+$P(X=4)=\answer[tolerance=0.005]{36.02}\%$ \qquad
+$P(X=5)=\answer[tolerance=0.005]{16.81}\%$
+
+\begin{hint}
+Here success has probability $p=0.7$, so failure has probability $0.3$. Be careful
+which exponent goes with which.
+\end{hint}
+
+\begin{feedback}
+With $n=5$ and $p=0.7$:
+\[
+\begin{array}{ll}
+P(X=0)=1\,(0.3)^5=0.00243 & \to 0.24\%\\
+P(X=1)=5\,(0.7)(0.3)^4=0.02835 & \to 2.84\%\\
+P(X=2)=10\,(0.7)^2(0.3)^3=0.13230 & \to 13.23\%\\
+P(X=3)=10\,(0.7)^3(0.3)^2=0.30870 & \to 30.87\%\\
+P(X=4)=5\,(0.7)^4(0.3)=0.36015 & \to 36.02\%\\
+P(X=5)=(0.7)^5=0.16807 & \to 16.81\%
+\end{array}
+\]
+These sum to $100\%$. \checkmark
+
+Note the distribution peaks at $k=4$, consistent with $E(X)=np=5(0.7)=3.5$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} Your sister bets (just bragging rights) that you won't successfully
+separate more than $3$ eggs without breaking their yolks. What is the probability that
+you are able to separate \emph{4 or more} of the $5$ eggs without breaking their
+yolks?
+
+Rounded to two decimal places: $\answer[tolerance=0.005]{52.82}\%$
+
+\begin{feedback}
+\[
+P(X\ge 4)=P(X=4)+P(X=5)=0.36015+0.16807=0.52822,
+\]
+about $52.82\%$ --- so you are slightly more likely than not to win the bet.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\end{document}

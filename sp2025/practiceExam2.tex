@@ -1,0 +1,251 @@
+\documentclass[12pt]{ximera}
+\title{Practice Exam 2}
+\begin{document}
+\begin{abstract}
+Practice for Exam 2, covering Sections 8.1--8.5: counting consistently in
+combinatorial probability, permutations versus combinations, Pascal's triangle,
+basketball lineups, and a binomial distribution with its expected value.
+\end{abstract}
+\maketitle
+
+\section*{Practice Exam 2}
+
+\begin{problem}
+Assess whether each of the following claims is true or false.
+
+\begin{prompt}
+\textbf{(a)} Claim: some combinatorial probabilities can be computed either using
+combinations or using permutations.
+
+\begin{multipleChoice}
+\choice[correct]{True}
+\choice{False}
+\end{multipleChoice}
+
+\begin{feedback}
+True. For example, the probability of drawing all four aces in four cards is
+$\frac{1}{C(52,4)}$ if hands are unordered, and $\frac{4!}{P(52,4)}$ if the draws are
+ordered --- and these are the same number, $\frac{1}{270{,}725}$. What matters is
+counting the event and the sample space the same way.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} Claim: when computing the probability of a combinatorial event, if
+combinations are used to count the outcomes satisfying the event, then combinations
+must be used to count the total possible outcomes.
+
+\begin{multipleChoice}
+\choice[correct]{True}
+\choice{False}
+\end{multipleChoice}
+
+\begin{feedback}
+True. A probability is a ratio of two counts of the \emph{same kind} of outcome. If the
+numerator counts unordered selections and the denominator counts ordered ones, every
+outcome in the denominator is counted many times over and the ratio comes out too
+small.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} Claim: the probability of success in a binomial experiment may change
+from trial to trial.
+
+\begin{multipleChoice}
+\choice{True}
+\choice[correct]{False}
+\end{multipleChoice}
+
+\begin{feedback}
+False. A binomial experiment requires independent trials with the \emph{same}
+probability of success $p$ each time --- that is what makes the formula
+$C(n,k)\,p^k(1-p)^{n-k}$ valid. Drawing cards without replacement, for instance, is not
+binomial, because $p$ changes after each draw.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Determine which among the following should be counted using the multiplication
+principle, permutations, or combinations, and give the count.
+
+\begin{prompt}
+\textbf{(a)} A teacher wants to assign a line leader, a lunch helper, and a board
+eraser among a class of $20$ students.
+
+\begin{multipleChoice}
+\choice[correct]{Permutations}
+\choice{Combinations}
+\choice{Multiplication principle with repetition}
+\end{multipleChoice}
+
+The count is $\answer{6840}$.
+
+\begin{feedback}
+The three jobs are distinct, so order matters, and one student cannot hold two jobs.
+That is a permutation:
+\[ P(20,3)=\frac{20!}{17!}=20\cdot 19\cdot 18 = 6840. \]
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} A group of friends is deciding which five champions from a list of $20$
+they think make the best team for an online game.
+
+\begin{multipleChoice}
+\choice{Permutations}
+\choice[correct]{Combinations}
+\choice{Multiplication principle with repetition}
+\end{multipleChoice}
+
+The count is $\answer{15504}$.
+
+\begin{feedback}
+A team is just a set of five champions --- no ordering, no repeats:
+\[ C(20,5)=\frac{20!}{5!\,15!}=15{,}504. \]
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} Four cross-country runners out of a team of $10$ will represent the team
+in a half-marathon.
+
+\begin{multipleChoice}
+\choice{Permutations}
+\choice[correct]{Combinations}
+\choice{Multiplication principle with repetition}
+\end{multipleChoice}
+
+The count is $\answer{210}$.
+
+\begin{feedback}
+The four runners are simply a subset of the team; no one is assigned a distinct role,
+so order does not matter:
+\[ C(10,4)=\frac{10!}{4!\,6!}=210. \]
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+Complete Pascal's triangle out to the layer that consists of the values of $C(5,k)$ for
+each $k=0,1,2,3,4,5$.
+
+$\answer{1}$, $\answer{5}$, $\answer{10}$, $\answer{10}$, $\answer{5}$, $\answer{1}$
+
+\begin{feedback}
+Row $4$ is $1,4,6,4,1$; adding neighboring pairs gives row $5$: $1,5,10,10,5,1$.
+\end{feedback}
+\end{problem}
+
+\begin{problem}
+Suppose an NBA team rosters $15$ players. Only five are allowed on the court at a time,
+so consider their possible lineups.
+
+\begin{prompt}
+\textbf{(a)} How many lineups of five are there if we just consider them a subset?
+
+$\answer{3003}$
+
+\begin{feedback}
+$C(15,5)=3003$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} How many lineups of five are there if each of the five is assigned a
+specific position (so the same five players in different positions is a different
+lineup)?
+
+$\answer{360360}$
+
+\begin{feedback}
+$P(15,5)=15\cdot 14\cdot 13\cdot 12\cdot 11=360{,}360$, which is $5!=120$ times part (a).
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} Suppose we're interested in one particular player, Jalen. How many
+five-player subsets include Jalen?
+
+$\answer{1001}$
+
+\begin{feedback}
+With Jalen in, the other $4$ spots come from the remaining $14$ players:
+$C(14,4)=1001$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(d)} If the coach picks a five-player lineup entirely at random, what is the
+probability that Jalen is included? Give a percentage rounded to two decimal places.
+
+$\answer[tolerance=0.005]{33.33}\%$
+
+\begin{feedback}
+\[ \frac{C(14,4)}{C(15,5)}=\frac{1001}{3003}=\frac13\approx 33.33\%. \]
+This makes sense: $5$ of the $15$ players are chosen, and each is equally likely to be
+one of them.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\begin{problem}
+You're baking a cake that requires separating $7$ eggs' worth of whites and yolks.
+Suppose $65\%$ of the time you separate an egg without breaking the yolk. Let $X$ be the
+number of eggs separated without breaking the yolk.
+
+\begin{prompt}
+\textbf{(a)} Using the seventh row of Pascal's triangle $(1,7,21,35,35,21,7,1)$,
+compute the probability distribution of $X$. Give each probability as a percentage
+rounded to two decimal places.
+
+$P(X=0)=\answer[tolerance=0.005]{0.06}\%$ \quad
+$P(X=1)=\answer[tolerance=0.005]{0.84}\%$ \quad
+$P(X=2)=\answer[tolerance=0.005]{4.66}\%$ \quad
+$P(X=3)=\answer[tolerance=0.005]{14.42}\%$
+
+\smallskip
+$P(X=4)=\answer[tolerance=0.005]{26.79}\%$ \quad
+$P(X=5)=\answer[tolerance=0.005]{29.85}\%$ \quad
+$P(X=6)=\answer[tolerance=0.005]{18.48}\%$ \quad
+$P(X=7)=\answer[tolerance=0.005]{4.90}\%$
+
+\begin{feedback}
+With $n=7$, $p=0.65$, and $1-p=0.35$, $P(X=k)=C(7,k)(0.65)^k(0.35)^{7-k}$:
+\[
+\begin{array}{llll}
+k=0: 0.06\% & k=1: 0.84\% & k=2: 4.66\% & k=3: 14.42\%\\
+k=4: 26.79\% & k=5: 29.85\% & k=6: 18.48\% & k=7: 4.90\%
+\end{array}
+\]
+These total $100\%$. For example, $P(X=5)=21(0.65)^5(0.35)^2\approx 0.2985$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(b)} What is the probability of separating $5$ or more of the $7$ eggs without
+breaking a yolk? Round to two decimal places.
+
+$\answer[tolerance=0.01]{53.23}\%$
+
+\begin{feedback}
+\[ P(X\ge 5)=P(5)+P(6)+P(7)\approx 0.29848+0.18478+0.04902=0.53228, \]
+about $53.23\%$.
+\end{feedback}
+\end{prompt}
+
+\begin{prompt}
+\textbf{(c)} What is the expected number of eggs separated without breaking a yolk?
+Round to two decimal places.
+
+$E(X)=\answer[tolerance=0.005]{4.55}$
+
+\begin{feedback}
+Weighting each $k$ by its probability and adding gives $4.55$, which matches the
+binomial shortcut $E(X)=np=7(0.65)=4.55$.
+\end{feedback}
+\end{prompt}
+\end{problem}
+
+\end{document}
