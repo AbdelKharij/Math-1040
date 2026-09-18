@@ -1,8 +1,7 @@
-# Math 1040 (ISU) — conversion notes
+# Finite Mathematics — conversion notes
 
 Source: `MATH_1040.zip`, `FA2025/` only (HW1–HW9, Exams 1–3, Practice Exams 1–3,
-Final, Practice Final). Original documents are print worksheets by Dr. Kirin J Martin,
-Iowa State University.
+Final, Practice Final). Original documents are an instructor's print worksheets.
 
 Every problem with a determinate answer was converted to an interactive Ximera answer
 (`\answer`, `\multipleChoice`, `\selectAll`); open-ended "justify"/"sketch" parts use
